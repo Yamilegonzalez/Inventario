@@ -6,8 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,21 +17,25 @@ public class Item implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JoinColumn(name = "id_item", referencedColumnName = "id_item")
+    @Column(name = "id_item", nullable = false)
     private Long iditem;
-    @Column(name = "id_item")
+    @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
+    @Column(name = "id_categoria", nullable = false)
     private Long idCate;
-    @Column(name = "id_categoria")
-    private int NSerie;
     @Column(name = "no_serie")
-    private String nombre;
+    private int NSerie;
     @Column(name = "nomnbre_item")
-    private String desc;
+    private String nombre;
     @Column(name = "descripcion")
+    private String desc;
+    
     @Temporal(TemporalType.TIMESTAMP)
-    private TemporalType createdAt;
+ 
     @Column(name = "created_at")
-    private TemporalType updatedAt;
+    private TemporalType createdAt;
     @Column(name = "updated_at")
+    private TemporalType updatedAt;
 
 
     public Long getIditem() {

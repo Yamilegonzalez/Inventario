@@ -1,11 +1,18 @@
 package com.UPT.inventario.Model;
+<<<<<<< HEAD
 
+=======
+>>>>>>> b5985feb11043d6e432c9f75ae359c8c98c4f4b0
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+<<<<<<< HEAD
+=======
+import javax.persistence.JoinColumn;
+>>>>>>> b5985feb11043d6e432c9f75ae359c8c98c4f4b0
 
 @Entity
 @Table(name = "sancion_aplicada")

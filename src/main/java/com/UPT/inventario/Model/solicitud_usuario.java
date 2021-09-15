@@ -5,13 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD
+=======
+import javax.persistence.JoinColumn;
+>>>>>>> b5985feb11043d6e432c9f75ae359c8c98c4f4b0
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
 
 @Entity
 @Table(name = "solicitud_usuario")
-public class Solicitud_usuario {
+public class solicitud_usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
