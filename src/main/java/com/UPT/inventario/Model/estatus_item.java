@@ -5,13 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "estatus_item")
-public class Estatus_item {
-    
+public class Estatus_item{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id_estatus")

@@ -1,14 +1,11 @@
 package com.UPT.inventario.Model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +13,7 @@ import javax.persistence.Table;
 public class Usuario {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id_sancion_usuario_apli")
+    @Column(name="id_usuario")
     private Long idUsuario;
 
     @JoinColumn(name = "id_area", referencedColumnName = "id_area")
@@ -72,11 +69,11 @@ public class Usuario {
         this.idArea = idArea;
     }
 
-    public long getIdRol() {
+    public Rol getIdRol() {
         return this.idRol;
     }
 
-    public void setIdRol(long idRol) {
+    public void setIdRol(Rol idRol) {
         this.idRol = idRol;
     }
 
@@ -159,37 +156,5 @@ public class Usuario {
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
-
-    public Rol getRol() {
-        return this.rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }
-
-    public Sancion_aplicada getSancionAplecada() {
-        return this.sancionAplecada;
-    }
-
-    public void setSancionAplecada(Sancion_aplicada sancionAplecada) {
-        this.sancionAplecada = sancionAplecada;
-    }
-
-    public Reporte_usuario getReporteUsuario() {
-        return this.reporteUsuario;
-    }
-
-    public void setReporteUsuario(Reporte_usuario reporteUsuario) {
-        this.reporteUsuario = reporteUsuario;
-    }
-
-    public Solicitud_usuario getSolicitudUsuario() {
-        return this.solicitudUsuario;
-    }
-
-    public void setSolicitudUsuario(Solicitud_usuario solicitudUsuario) {
-        this.solicitudUsuario = solicitudUsuario;
-    }
-   
+       
 }

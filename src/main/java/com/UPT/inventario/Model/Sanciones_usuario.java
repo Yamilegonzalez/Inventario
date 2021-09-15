@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,100 +18,118 @@ public class Sanciones_usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idSancion;
-    @Column(name = "id_sancion_usuario")
-    private Long idu;
-    @Column(name = "id_usuario")
-    private Long iditem;
-    @Column(name = "id_item")
-    private String motivo;
+    @Column(name = "id_sancion_usuario_apli")
+    private Long idSancionUsuApli;
+
+    @JoinColumn(name = "id_sancion_usuario", referencedColumnName = "id_sancion_usuario")
+    private Sanciones_usuario idSancionUsuario;
+    
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    private Usuario idUsuario;
+    
+    @JoinColumn(name = "id_item", referencedColumnName = "id_item")
+    private Item idItem;
+    
     @Column(name = "motivo_sistema")
-    private Date Finicial;
+    private String motivoSistema;
+    
     @Column(name = "fecha_ingresada")
-    private Date Fretiro;
+    private Date Finicial;
+    
     @Column(name = "fecha_registro")
-    private Date FLimite;
+    private Date Fretiro;
+    
     @Column(name = "fecha_limite")
+    private Date FLimite;
+
     @Temporal(TemporalType.TIMESTAMP)
-    private TemporalType createdAt;
     @Column(name = "created_at")
-    private TemporalType updatedAt;
+    private TemporalType createdAt;
+
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at")
+    private TemporalType updatedAt;
 
-    public Long getIdSancion() {
-        return idSancion;
+
+    public Long getIdSancionUsuApli() {
+        return this.idSancionUsuApli;
     }
 
-    public void setIdSancion(Long idSancion) {
-        this.idSancion = idSancion;
+    public void setIdSancionUsuApli(Long idSancionUsuApli) {
+        this.idSancionUsuApli = idSancionUsuApli;
     }
 
-    public Long getIdu() {
-        return idu;
+    public Sanciones_usuario getIdSancionUsuario() {
+        return this.idSancionUsuario;
     }
 
-    public void setIdu(Long idu) {
-        this.idu = idu;
+    public void setIdSancionUsuario(Sanciones_usuario idSancionUsuario) {
+        this.idSancionUsuario = idSancionUsuario;
     }
 
-    public Long getIditem() {
-        return iditem;
+    public Usuario getIdUsuario() {
+        return this.idUsuario;
     }
 
-    public void setIditem(Long iditem) {
-        this.iditem = iditem;
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public String getMotivo() {
-        return motivo;
+    public Item getIdItem() {
+        return this.idItem;
     }
 
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
+    public void setIdItem(Item idItem) {
+        this.idItem = idItem;
+    }
+
+    public String getMotivoSistema() {
+        return this.motivoSistema;
+    }
+
+    public void setMotivoSistema(String motivoSistema) {
+        this.motivoSistema = motivoSistema;
     }
 
     public Date getFinicial() {
-        return Finicial;
+        return this.Finicial;
     }
 
-    public void setFinicial(Date finicial) {
-        Finicial = finicial;
+    public void setFinicial(Date Finicial) {
+        this.Finicial = Finicial;
     }
 
     public Date getFretiro() {
-        return Fretiro;
+        return this.Fretiro;
     }
 
-    public void setFretiro(Date fretiro) {
-        Fretiro = fretiro;
+    public void setFretiro(Date Fretiro) {
+        this.Fretiro = Fretiro;
     }
 
     public Date getFLimite() {
-        return FLimite;
+        return this.FLimite;
     }
 
-    public void setFLimite(Date fLimite) {
-        FLimite = fLimite;
+    public void setFLimite(Date FLimite) {
+        this.FLimite = FLimite;
     }
 
     public TemporalType getCreatedAt() {
-        return createdAt;
+        return this.createdAt;
     }
 
-    public void setCreateAt(TemporalType createdAt) {
+    public void setCreatedAt(TemporalType createdAt) {
         this.createdAt = createdAt;
     }
 
     public TemporalType getUpdatedAt() {
-        return updatedAt;
+        return this.updatedAt;
     }
 
-    public void setUpdateAt(TemporalType updatedAt) {
+    public void setUpdatedAt(TemporalType updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
-
+        
 }

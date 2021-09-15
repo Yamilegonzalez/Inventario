@@ -1,15 +1,12 @@
 package com.UPT.inventario.Model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
 
 
 @Entity
@@ -17,21 +14,21 @@ import javax.persistence.Table;
 public class Solicitud_usuario {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_solicitud")
     private Long idSolicitud;
 
-    @Column(name="id_estatus", nullable = false)
-    private long idEstatus;
+    @JoinColumn(name = "id_estatus", referencedColumnName = "id_estatus")
+    private Estatus_item idEstatus;
 
     @Column(name="folio_solicitud", nullable = false)
     private String folioSolicitud;
 
-    @Column(name="id_usuario", nullable = false)
-    private long idUsuario;
-
-    @Column(name="id_item", nullable = false)
-    private long idItem;
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    private Usuario idUsuario;
+    
+    @JoinColumn(name = "id_item", referencedColumnName = "id_item")
+    private Item idItem;
 
     @Column(name="fecha_inicio", nullable = false)
     private String fechaInicio;
@@ -49,19 +46,20 @@ public class Solicitud_usuario {
     private String updated_at;
 
 
-    public long getIdSolicitud() {
+
+    public Long getIdSolicitud() {
         return this.idSolicitud;
     }
 
-    public void setIdSolicitud(long idSolicitud) {
+    public void setIdSolicitud(Long idSolicitud) {
         this.idSolicitud = idSolicitud;
     }
 
-    public long getIdEstatus() {
+    public Estatus_item getIdEstatus() {
         return this.idEstatus;
     }
 
-    public void setIdEstatus(long idEstatus) {
+    public void setIdEstatus(Estatus_item idEstatus) {
         this.idEstatus = idEstatus;
     }
 
@@ -73,19 +71,19 @@ public class Solicitud_usuario {
         this.folioSolicitud = folioSolicitud;
     }
 
-    public long getIdUsuario() {
+    public Usuario getIdUsuario() {
         return this.idUsuario;
     }
 
-    public void setIdUsuario(long idUsuario) {
+    public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public long getIdItem() {
+    public Item getIdItem() {
         return this.idItem;
     }
 
-    public void setIdItem(long idItem) {
+    public void setIdItem(Item idItem) {
         this.idItem = idItem;
     }
 
@@ -128,5 +126,5 @@ public class Solicitud_usuario {
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
-    
+        
 }

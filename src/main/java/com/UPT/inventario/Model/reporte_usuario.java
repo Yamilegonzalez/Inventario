@@ -1,14 +1,11 @@
 package com.UPT.inventario.Model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,17 +13,17 @@ import javax.persistence.Table;
 public class Reporte_usuario {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id_reporte_usuario")
+    @Column(name = "id_reporte_usuario")
     private Long idReportUsuario;
 
-    @Column(name = "id_usuario", nullable = false)
-    private long idUsuario;
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    private Usuario idUsuario;
 
-    @Column(name = "id_item", nullable = false)
-    private long idItem;
+    @JoinColumn(name = "id_item", referencedColumnName = "id_item")
+    private Item idItem;
 
-    @Column(name = "id_solicitud", nullable = false)
-    private long idSolicitud;
+    @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
+    private Solicitud_usuario idSolicitud;
 
     @Column(name = "motivo", nullable = false)
     private String motivo;
@@ -43,7 +40,7 @@ public class Reporte_usuario {
     @Column(name="updated_at", nullable = false)
     private String updated_at;
 
-  
+
     public long getIdReportUsuario() {
         return this.idReportUsuario;
     }
@@ -52,27 +49,27 @@ public class Reporte_usuario {
         this.idReportUsuario = idReportUsuario;
     }
 
-    public long getIdUsuario() {
+    public Usuario getIdUsuario() {
         return this.idUsuario;
     }
 
-    public void setIdUsuario(long idUsuario) {
+    public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public long getIdItem() {
+    public Item getIdItem() {
         return this.idItem;
     }
 
-    public void setIdItem(long idItem) {
+    public void setIdItem(Item idItem) {
         this.idItem = idItem;
     }
 
-    public long getIdSolicitud() {
+    public Solicitud_usuario getIdSolicitud() {
         return this.idSolicitud;
     }
 
-    public void setIdSolicitud(long idSolicitud) {
+    public void setIdSolicitud(Solicitud_usuario idSolicitud) {
         this.idSolicitud = idSolicitud;
     }
 
@@ -115,5 +112,5 @@ public class Reporte_usuario {
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
-
+   
 }
