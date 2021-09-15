@@ -2,6 +2,8 @@ package com.UPT.inventario.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,8 +11,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "id_solicitud")
 public class solicitud_usuario {
+
     @Id
-    private long idSolicitud;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id_solicitud")
+    private Long idSolicitud;
 
     @Column(name="id_estatus", nullable = false)
     private long idEstatus;

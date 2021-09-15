@@ -1,14 +1,19 @@
 package com.UPT.inventario.Model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "sancion_aplicada")
 public class Sancion_aplicada {
     @Id
-    private long idSanUsuApli;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id_sancion_usuario_apli")
+    private Long idSanUsuApli;
 
     @Column(name = "id_sancion_usuario", nullable = false)
     private long idSanUsua;

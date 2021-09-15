@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +14,8 @@ import javax.persistence.Table;
 public class Rol {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id_rol")
     private long idRol;
 
     @Column(name="nombre_rol", nullable = false)
@@ -24,6 +26,9 @@ public class Rol {
 
     @Column(name="updated_at", nullable = false)
     private String updated_at;
+
+    @OneToOne(mappedBy = "rol")
+    private Usuario usuario;
 
     public void setIdRol(long idRol){
         this.idRol = idRol;

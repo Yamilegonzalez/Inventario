@@ -2,14 +2,19 @@ package com.UPT.inventario.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "estatus_item")
 public class estatus_item {
+    
     @Id
-    private long idEstatus;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id_estatus")
+    private Long idEstatus;
 
     @Column(name="estado", nullable = false)
     private String estado;
