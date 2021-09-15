@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,25 +18,30 @@ public class Solicitud_aceptada implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ida;
     @Column(name = "id_solicitud_aceptada")
-    private Long ids;
+    private Long ida;
+    @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
     @Column(name = "id_solicitud")
-    private Long iditem;
+    private Long ids;
+    @JoinColumn(name = "id_item", referencedColumnName = "id_item")
     @Column(name = "id_item")
-    private Long idu;
+    private Long iditem;
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_ususario")
     @Column(name = "id_usuario")
-    private String descrip;
+    private Long idu;
     @Column(name = "descripcion")
-    private Date Finicial;
+    private String descrip;
+    
     @Column(name = "fecha_ingresada")
-    private Date Fretiro;
+    private Date Finicial;
     @Column(name = "fecha_retiro")
     @Temporal(TemporalType.TIMESTAMP)
-    private TemporalType createdAt;
+    private Date Fretiro;
     @Column(name = "created_at")
-    private TemporalType updatedAt;
+    private TemporalType createdAt;
     @Column(name = "updated_at")
+    private TemporalType updatedAt;
+    
 
 
     public Long getIda() {

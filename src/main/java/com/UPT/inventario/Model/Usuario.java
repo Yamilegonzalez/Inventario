@@ -1,14 +1,10 @@
 package com.UPT.inventario.Model;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -55,9 +51,8 @@ public class Usuario {
     @Column(name="updated_at", nullable = false)
     private String updated_at;
 
-
     public Long getIdUsuario() {
-        return this.idUsuario;
+        return idUsuario;
     }
 
     public void setIdUsuario(Long idUsuario) {
@@ -65,23 +60,23 @@ public class Usuario {
     }
 
     public Area getIdArea() {
-        return this.idArea;
+        return idArea;
     }
 
     public void setIdArea(Area idArea) {
         this.idArea = idArea;
     }
 
-    public long getIdRol() {
-        return this.idRol;
+    public Rol getIdRol() {
+        return idRol;
     }
 
-    public void setIdRol(long idRol) {
+    public void setIdRol(Rol idRol) {
         this.idRol = idRol;
     }
 
     public String getPrimerNombre() {
-        return this.primerNombre;
+        return primerNombre;
     }
 
     public void setPrimerNombre(String primerNombre) {
@@ -89,7 +84,7 @@ public class Usuario {
     }
 
     public String getSegundoNombre() {
-        return this.segundoNombre;
+        return segundoNombre;
     }
 
     public void setSegundoNombre(String segundoNombre) {
@@ -97,7 +92,7 @@ public class Usuario {
     }
 
     public String getApellidoP() {
-        return this.apellidoP;
+        return apellidoP;
     }
 
     public void setApellidoP(String apellidoP) {
@@ -105,7 +100,7 @@ public class Usuario {
     }
 
     public String getApellidoM() {
-        return this.apellidoM;
+        return apellidoM;
     }
 
     public void setApellidoM(String apellidoM) {
@@ -113,7 +108,7 @@ public class Usuario {
     }
 
     public String getMatricula() {
-        return this.matricula;
+        return matricula;
     }
 
     public void setMatricula(String matricula) {
@@ -121,7 +116,7 @@ public class Usuario {
     }
 
     public String getNumTelefono() {
-        return this.numTelefono;
+        return numTelefono;
     }
 
     public void setNumTelefono(String numTelefono) {
@@ -129,7 +124,7 @@ public class Usuario {
     }
 
     public String getCorreo() {
-        return this.correo;
+        return correo;
     }
 
     public void setCorreo(String correo) {
@@ -137,7 +132,7 @@ public class Usuario {
     }
 
     public String getContrasenia() {
-        return this.contrasenia;
+        return contrasenia;
     }
 
     public void setContrasenia(String contrasenia) {
@@ -145,7 +140,7 @@ public class Usuario {
     }
 
     public String getCreated_at() {
-        return this.created_at;
+        return created_at;
     }
 
     public void setCreated_at(String created_at) {
@@ -153,43 +148,12 @@ public class Usuario {
     }
 
     public String getUpdated_at() {
-        return this.updated_at;
+        return updated_at;
     }
 
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
-
-    public Rol getRol() {
-        return this.rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }
-
-    public Sancion_aplicada getSancionAplecada() {
-        return this.sancionAplecada;
-    }
-
-    public void setSancionAplecada(Sancion_aplicada sancionAplecada) {
-        this.sancionAplecada = sancionAplecada;
-    }
-
-    public Reporte_usuario getReporteUsuario() {
-        return this.reporteUsuario;
-    }
-
-    public void setReporteUsuario(Reporte_usuario reporteUsuario) {
-        this.reporteUsuario = reporteUsuario;
-    }
-
-    public Solicitud_usuario getSolicitudUsuario() {
-        return this.solicitudUsuario;
-    }
-
-    public void setSolicitudUsuario(Solicitud_usuario solicitudUsuario) {
-        this.solicitudUsuario = solicitudUsuario;
-    }
+    
    
 }
