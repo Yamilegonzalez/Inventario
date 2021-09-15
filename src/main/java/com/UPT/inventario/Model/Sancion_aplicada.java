@@ -1,11 +1,15 @@
 package com.UPT.inventario.Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 @Table(name = "sancion_aplicada")
@@ -39,6 +43,17 @@ public class Sancion_aplicada {
     @Column(name="updated_at", nullable = false)
     private String updated_at;
 
+    @ManyToOne
+    @JoinColumn(name="id_usuario", nullable=false)
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "id_sancion_usuario")
+    private Sanciones_usuario sancionUsuario;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_item", referencedColumnName = "id_item")
+    private Item item;
 
     public long getIdSanUsuApli() {
         return this.idSanUsuApli;

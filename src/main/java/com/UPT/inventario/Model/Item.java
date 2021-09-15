@@ -1,35 +1,32 @@
 package com.UPT.inventario.Model;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "sanciones_usuario")
-public class SancionesModel implements Serializable {
+@Table(name = "items")
+public class Item implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idSancion;
-    @Column(name = "id_sancion_usuario")
-    private Long idu;
-    @Column(name = "id_usuario")
     private Long iditem;
     @Column(name = "id_item")
-    private String motivo;
-    @Column(name = "motivo_sistema")
-    private Date Finicial;
-    @Column(name = "fecha_ingresada")
-    private Date Fretiro;
-    @Column(name = "fecha_registro")
-    private Date FLimite;
-    @Column(name = "fecha_limite")
+    private Long idCate;
+    @Column(name = "id_categoria")
+    private int NSerie;
+    @Column(name = "no_serie")
+    private String nombre;
+    @Column(name = "nomnbre_item")
+    private String desc;
+    @Column(name = "descripcion")
     @Temporal(TemporalType.TIMESTAMP)
     private TemporalType createdAt;
     @Column(name = "created_at")
@@ -38,21 +35,11 @@ public class SancionesModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getIdSancion() {
-        return idSancion;
-    }
+    @OneToOne(mappedBy = "id_item")
+    private Sancion_aplicada sancion_aplicada;
 
-    public void setIdSancion(Long idSancion) {
-        this.idSancion = idSancion;
-    }
-
-    public Long getIdu() {
-        return idu;
-    }
-
-    public void setIdu(Long idu) {
-        this.idu = idu;
-    }
+    @OneToMany(mappedBy = "id_item")
+    private Reporte_usuario reporteUsuario;
 
     public Long getIditem() {
         return iditem;
@@ -62,36 +49,36 @@ public class SancionesModel implements Serializable {
         this.iditem = iditem;
     }
 
-    public String getMotivo() {
-        return motivo;
+    public Long getIdCate() {
+        return idCate;
     }
 
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
+    public void setIdCate(Long idCate) {
+        this.idCate = idCate;
     }
 
-    public Date getFinicial() {
-        return Finicial;
+    public int getNSerie() {
+        return NSerie;
     }
 
-    public void setFinicial(Date finicial) {
-        Finicial = finicial;
+    public void setNSerie(int nSerie) {
+        NSerie = nSerie;
     }
 
-    public Date getFretiro() {
-        return Fretiro;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setFretiro(Date fretiro) {
-        Fretiro = fretiro;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public Date getFLimite() {
-        return FLimite;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setFLimite(Date fLimite) {
-        FLimite = fLimite;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public TemporalType getCreatedAt() {

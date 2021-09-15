@@ -11,55 +11,54 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "areas")
-public class AreaModel implements Serializable {
+@Table(name="categoria_item")
+public class Categoria_item implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "id_area")
+    private Long idCategoria;
+    @Column(name = "id_categoria")
     private String nombre;
-
-    public Long getId() {
-        return id;
+    @Column(name="nombre_categoria")
+    private String descip;
+    @Column(name="descripcion")
+    @Temporal(TemporalType.TIMESTAMP)
+    private TemporalType createdAt;
+    @Column(name = "created_at")
+    private TemporalType updatedAt;
+    @Column(name = "updated_at")
+    private static final long serialVersionUID = 1L;
+    public Long getIdCategoria() {
+        return idCategoria;
     }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdCategoria(Long idCategoria) {
+        this.idCategoria = idCategoria;
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    public String getDescip() {
+        return descip;
+    }
+    public void setDescip(String descip) {
+        this.descip = descip;
+    }
     public TemporalType getCreatedAt() {
         return createdAt;
     }
-
-    public void setCreateAt(TemporalType createdAt) {
+    public void setCreatedAt(TemporalType createdAt) {
         this.createdAt = createdAt;
     }
-
     public TemporalType getUpdatedAt() {
         return updatedAt;
     }
-
-    public void setUpdateAt(TemporalType updatedAt) {
+    public void setUpdatedAt(TemporalType updatedAt) {
         this.updatedAt = updatedAt;
     }
-
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
 
-    @Column(name = "created_at")
-    private TemporalType createdAt;
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at")
-    private TemporalType updatedAt;
-    @Temporal(TemporalType.TIMESTAMP)
-    private static final long serialVersionUID = 1L;
 }

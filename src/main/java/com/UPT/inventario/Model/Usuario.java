@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -57,6 +58,15 @@ public class Usuario {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_rol", referencedColumnName = "id_rol")
     private Rol rol;
+
+    @OneToMany(mappedBy = "id_usuario")
+    private Sancion_aplicada sancionAplecada;
+
+    @OneToOne(mappedBy = "id_usuario")
+    private Reporte_usuario reporteUsuario;
+
+    @OneToMany(mappedBy="id_usuario")
+    private Solicitud_usuario solicitudUsuario;
 
     public long getIdUsuario() {
         return this.idUsuario;

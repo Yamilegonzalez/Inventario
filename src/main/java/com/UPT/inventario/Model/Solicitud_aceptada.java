@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "solicitud_aceptadas")
-public class SolicitudModel implements Serializable {
+public class Solicitud_aceptada implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ida;

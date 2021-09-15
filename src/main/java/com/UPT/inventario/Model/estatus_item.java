@@ -5,11 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "estatus_item")
-public class estatus_item {
+public class Estatus_item {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,6 +25,9 @@ public class estatus_item {
 
     @Column(name="updated_at", nullable = false)
     private String updated_at;
+
+    @OneToOne(mappedBy = "estatusItem")
+    private Solicitud_usuario solicitudUsuario;
 
     public long getIdEstatus() {
         return this.idEstatus;
