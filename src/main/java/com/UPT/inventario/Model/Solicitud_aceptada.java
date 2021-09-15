@@ -12,8 +12,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "solicitud_aceptadas")
+@Table(name = "solicitud_aceptada")
 public class Solicitud_aceptada implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ida;
@@ -36,7 +37,6 @@ public class Solicitud_aceptada implements Serializable {
     private TemporalType updatedAt;
     @Column(name = "updated_at")
 
-    private static final long serialVersionUID = 1L;
 
     public Long getIda() {
         return ida;

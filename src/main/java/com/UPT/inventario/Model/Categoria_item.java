@@ -13,9 +13,11 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="categoria_item")
 public class Categoria_item implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCategoria;
+    
     @Column(name = "id_categoria")
     private String nombre;
     @Column(name="nombre_categoria")
@@ -26,7 +28,6 @@ public class Categoria_item implements Serializable {
     @Column(name = "created_at")
     private TemporalType updatedAt;
     @Column(name = "updated_at")
-    private static final long serialVersionUID = 1L;
     public Long getIdCategoria() {
         return idCategoria;
     }

@@ -19,11 +19,11 @@ public class Usuario {
     @Column(name="id_sancion_usuario_apli")
     private Long idUsuario;
 
-    @Column(name = "id_area", nullable = false)
-    private long idArea;
+    @JoinColumn(name = "id_area", referencedColumnName = "id_area")
+    private Area idArea;
 
-    @Column(name = "id_rol", nullable = false)
-    private long idRol;
+    @JoinColumn(name = "id_rol", referencedColumnName = "id_rol")
+    private Rol idRol;
 
     @Column(name = "primer_nombre", nullable = false)
     private String primerNombre;
@@ -55,32 +55,20 @@ public class Usuario {
     @Column(name="updated_at", nullable = false)
     private String updated_at;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_rol", referencedColumnName = "id_rol")
-    private Rol rol;
 
-    @OneToMany(mappedBy = "id_usuario")
-    private Sancion_aplicada sancionAplecada;
-
-    @OneToOne(mappedBy = "id_usuario")
-    private Reporte_usuario reporteUsuario;
-
-    @OneToMany(mappedBy="id_usuario")
-    private Solicitud_usuario solicitudUsuario;
-
-    public long getIdUsuario() {
+    public Long getIdUsuario() {
         return this.idUsuario;
     }
 
-    public void setIdUsuario(long idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public long getIdArea() {
+    public Area getIdArea() {
         return this.idArea;
     }
 
-    public void setIdArea(long idArea) {
+    public void setIdArea(Area idArea) {
         this.idArea = idArea;
     }
 
@@ -172,4 +160,36 @@ public class Usuario {
         this.updated_at = updated_at;
     }
 
+    public Rol getRol() {
+        return this.rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+    public Sancion_aplicada getSancionAplecada() {
+        return this.sancionAplecada;
+    }
+
+    public void setSancionAplecada(Sancion_aplicada sancionAplecada) {
+        this.sancionAplecada = sancionAplecada;
+    }
+
+    public Reporte_usuario getReporteUsuario() {
+        return this.reporteUsuario;
+    }
+
+    public void setReporteUsuario(Reporte_usuario reporteUsuario) {
+        this.reporteUsuario = reporteUsuario;
+    }
+
+    public Solicitud_usuario getSolicitudUsuario() {
+        return this.solicitudUsuario;
+    }
+
+    public void setSolicitudUsuario(Solicitud_usuario solicitudUsuario) {
+        this.solicitudUsuario = solicitudUsuario;
+    }
+   
 }

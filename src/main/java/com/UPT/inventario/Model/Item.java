@@ -13,8 +13,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "items")
+@Table(name = "item")
 public class Item implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long iditem;
@@ -33,13 +34,6 @@ public class Item implements Serializable {
     private TemporalType updatedAt;
     @Column(name = "updated_at")
 
-    private static final long serialVersionUID = 1L;
-
-    @OneToOne(mappedBy = "id_item")
-    private Sancion_aplicada sancion_aplicada;
-
-    @OneToMany(mappedBy = "id_item")
-    private Reporte_usuario reporteUsuario;
 
     public Long getIditem() {
         return iditem;

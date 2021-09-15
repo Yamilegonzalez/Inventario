@@ -26,8 +26,6 @@ public class Estatus_item {
     @Column(name="updated_at", nullable = false)
     private String updated_at;
 
-    @OneToOne(mappedBy = "estatusItem")
-    private Solicitud_usuario solicitudUsuario;
 
     public long getIdEstatus() {
         return this.idEstatus;

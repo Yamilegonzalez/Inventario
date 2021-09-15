@@ -11,8 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="rol")
-public class Rol {
-
+public class Rol{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id_rol")
@@ -26,9 +25,6 @@ public class Rol {
 
     @Column(name="updated_at", nullable = false)
     private String updated_at;
-
-    @OneToOne(mappedBy = "rol")
-    private Usuario usuario;
 
     public void setIdRol(long idRol){
         this.idRol = idRol;

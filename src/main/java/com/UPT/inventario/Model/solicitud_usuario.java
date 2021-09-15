@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "id_solicitud")
+@Table(name = "solicitud_usuario")
 public class Solicitud_usuario {
 
     @Id
@@ -48,16 +48,6 @@ public class Solicitud_usuario {
     @Column(name="updated_at", nullable = false)
     private String updated_at;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_estatus", referencedColumnName = "id_estatus")
-    private Estatus_item estatusItem;
-
-    @OneToOne(mappedBy = "id_solicitud")
-    private Reporte_usuario reporteUsuario;
-
-    @ManyToOne
-    @JoinColumn(name = "id_usuario", nullable = false)
-    private Usuario usuario;
 
     public long getIdSolicitud() {
         return this.idSolicitud;

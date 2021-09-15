@@ -43,19 +43,7 @@ public class Reporte_usuario {
     @Column(name="updated_at", nullable = false)
     private String updated_at;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
-    private Usuario usuario;
-
-    @ManyToOne
-    @JoinColumn(name = "id_item", nullable = false)
-    private Item item;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
-    private Solicitud_usuario solicitudUsuario;
-
-
+  
     public long getIdReportUsuario() {
         return this.idReportUsuario;
     }

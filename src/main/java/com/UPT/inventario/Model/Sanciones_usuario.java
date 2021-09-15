@@ -15,6 +15,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "sanciones_usuario")
 public class Sanciones_usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSancion;
@@ -36,11 +37,6 @@ public class Sanciones_usuario implements Serializable {
     @Column(name = "created_at")
     private TemporalType updatedAt;
     @Column(name = "updated_at")
-
-    @OneToMany(mappedBy = "id_sancion_usuario")
-    private Sancion_aplicada sancionAplicada;
-
-    private static final long serialVersionUID = 1L;
 
     public Long getIdSancion() {
         return idSancion;

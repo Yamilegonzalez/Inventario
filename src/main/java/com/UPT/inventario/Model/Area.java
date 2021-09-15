@@ -11,24 +11,36 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "areas")
+@Table(name = "area")
 public class Area implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "id_area")
+    @Column(name = "id_area", nullable = false)
+    private Long idArea;
+
+    @Column(name = "nombre")
     private String nombre;
 
-    public Long getId() {
-        return id;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at")
+    private TemporalType createdAt;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "updated_at")
+    private TemporalType updatedAt;
+
+
+    public Long getIdArea() {
+        return this.idArea;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdArea(Long idArea) {
+        this.idArea = idArea;
     }
 
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public void setNombre(String nombre) {
@@ -36,30 +48,21 @@ public class Area implements Serializable {
     }
 
     public TemporalType getCreatedAt() {
-        return createdAt;
+        return this.createdAt;
     }
 
-    public void setCreateAt(TemporalType createdAt) {
+    public void setCreatedAt(TemporalType createdAt) {
         this.createdAt = createdAt;
     }
 
     public TemporalType getUpdatedAt() {
-        return updatedAt;
+        return this.updatedAt;
     }
 
-    public void setUpdateAt(TemporalType updatedAt) {
+    public void setUpdatedAt(TemporalType updatedAt) {
         this.updatedAt = updatedAt;
     }
+   
 
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
-
-    @Column(name = "created_at")
-    private TemporalType createdAt;
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at")
-    private TemporalType updatedAt;
-    @Temporal(TemporalType.TIMESTAMP)
-    private static final long serialVersionUID = 1L;
+    
 }

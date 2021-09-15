@@ -43,18 +43,6 @@ public class Sancion_aplicada {
     @Column(name="updated_at", nullable = false)
     private String updated_at;
 
-    @ManyToOne
-    @JoinColumn(name="id_usuario", nullable=false)
-    private Usuario usuario;
-
-    @ManyToOne
-    @JoinColumn(name = "id_sancion_usuario")
-    private Sanciones_usuario sancionUsuario;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_item", referencedColumnName = "id_item")
-    private Item item;
-
     public long getIdSanUsuApli() {
         return this.idSanUsuApli;
     }
