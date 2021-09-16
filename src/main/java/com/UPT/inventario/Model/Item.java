@@ -1,6 +1,5 @@
 package com.UPT.inventario.Model;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,94 +7,88 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import java.util.Date;
 
 @Entity
 @Table(name = "item")
-public class Item implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JoinColumn(name = "id_item", referencedColumnName = "id_item")
-    @Column(name = "id_item", nullable = false)
-    private Long iditem;
+    @Column(name = "id_item")
+    private Long idItem;
+
     @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
-    @Column(name = "id_categoria", nullable = false)
-    private Long idCate;
+    private Categoria_item idCategoria;
+
     @Column(name = "no_serie")
     private int NSerie;
-    @Column(name = "nomnbre_item")
-    private String nombre;
+
+    @Column(name = "nombre_item")
+    private String nombreItem;
+
     @Column(name = "descripcion")
-    private String desc;
+    private String descripcion;
     
-    @Temporal(TemporalType.TIMESTAMP)
- 
     @Column(name = "created_at")
-    private TemporalType createdAt;
+    private Date createdAt;
+
     @Column(name = "updated_at")
-    private TemporalType updatedAt;
+    private Date updatedAt;
 
-
-    public Long getIditem() {
-        return iditem;
+    public Long getIdItem() {
+        return this.idItem;
     }
 
-    public void setIditem(Long iditem) {
-        this.iditem = iditem;
+    public void setIdItem(Long idItem) {
+        this.idItem = idItem;
     }
 
-    public Long getIdCate() {
-        return idCate;
+    public Categoria_item getIdCategoria() {
+        return this.idCategoria;
     }
 
-    public void setIdCate(Long idCate) {
-        this.idCate = idCate;
+    public void setIdCategoria(Categoria_item idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public int getNSerie() {
-        return NSerie;
+        return this.NSerie;
     }
 
-    public void setNSerie(int nSerie) {
-        NSerie = nSerie;
+    public void setNSerie(int NSerie) {
+        this.NSerie = NSerie;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreItem() {
+        return this.nombreItem;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreItem(String nombreItem) {
+        this.nombreItem = nombreItem;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescripcion() {
+        return this.descripcion;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public TemporalType getCreatedAt() {
-        return createdAt;
+    public Date getCreatedAt() {
+        return this.createdAt;
     }
 
-    public void setCreateAt(TemporalType createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
-    public TemporalType getUpdatedAt() {
-        return updatedAt;
+    public Date getUpdatedAt() {
+        return this.updatedAt;
     }
 
-    public void setUpdateAt(TemporalType updatedAt) {
+    public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
-
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
-
+            
 }

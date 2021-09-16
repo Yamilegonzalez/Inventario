@@ -1,8 +1,6 @@
 package com.UPT.inventario.Model;
-<<<<<<< HEAD
+import java.sql.Date;
 
-=======
->>>>>>> b5985feb11043d6e432c9f75ae359c8c98c4f4b0
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -50,10 +48,10 @@ public class Usuario {
     private String contrasenia;
 
     @Column(name="created_at", nullable = false)
-    private String created_at;
+    private Date created_at;
 
     @Column(name="updated_at", nullable = false)
-    private String updated_at;
+    private Date updated_at;
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -72,11 +70,7 @@ public class Usuario {
     }
 
     public Rol getIdRol() {
-<<<<<<< HEAD
         return this.idRol;
-=======
-        return idRol;
->>>>>>> b5985feb11043d6e432c9f75ae359c8c98c4f4b0
     }
 
     public void setIdRol(Rol idRol) {
@@ -147,25 +141,20 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
-    public String getCreated_at() {
+    public Date getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(String created_at) {
+    public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
 
-    public String getUpdated_at() {
+    public Date getUpdated_at() {
         return updated_at;
     }
 
-    public void setUpdated_at(String updated_at) {
+    public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
     }
-<<<<<<< HEAD
        
-=======
-    
-   
->>>>>>> b5985feb11043d6e432c9f75ae359c8c98c4f4b0
 }

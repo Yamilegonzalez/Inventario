@@ -1,5 +1,7 @@
 package com.UPT.inventario.Model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +25,7 @@ public class Reporte_usuario {
     private Item idItem;
 
     @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
-    private Solicitud_usuario idSolicitud;
+    private Solicitud_usuario Solicitud;
 
     @Column(name = "motivo", nullable = false)
     private String motivo;
@@ -35,17 +37,18 @@ public class Reporte_usuario {
     private String url_img;
 
     @Column(name="created_at", nullable = false)
-    private String created_at;
+    private Date created_at;
 
     @Column(name="updated_at", nullable = false)
-    private String updated_at;
+    private Date updated_at;
 
 
-    public long getIdReportUsuario() {
+
+    public Long getIdReportUsuario() {
         return this.idReportUsuario;
     }
 
-    public void setIdReportUsuario(long idReportUsuario) {
+    public void setIdReportUsuario(Long idReportUsuario) {
         this.idReportUsuario = idReportUsuario;
     }
 
@@ -65,12 +68,12 @@ public class Reporte_usuario {
         this.idItem = idItem;
     }
 
-    public Solicitud_usuario getIdSolicitud() {
-        return this.idSolicitud;
+    public Solicitud_usuario getSolicitud() {
+        return this.Solicitud;
     }
 
-    public void setIdSolicitud(Solicitud_usuario idSolicitud) {
-        this.idSolicitud = idSolicitud;
+    public void setSolicitud(Solicitud_usuario Solicitud) {
+        this.Solicitud = Solicitud;
     }
 
     public String getMotivo() {
@@ -97,20 +100,21 @@ public class Reporte_usuario {
         this.url_img = url_img;
     }
 
-    public String getCreated_at() {
+    public Date getCreated_at() {
         return this.created_at;
     }
 
-    public void setCreated_at(String created_at) {
+    public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
 
-    public String getUpdated_at() {
+    public Date getUpdated_at() {
         return this.updated_at;
     }
 
-    public void setUpdated_at(String updated_at) {
+    public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
     }
-   
+    
+
 }

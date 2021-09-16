@@ -1,34 +1,31 @@
 package com.UPT.inventario.Model;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import java.util.Date;
+
 
 @Entity
 @Table(name = "area")
-public class Area implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Area{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_area", nullable = false)
     private Long idArea;
 
-    @Column(name = "nombre")
-    private String nombre;
+    @Column(name = "nombre_area")
+    private String nombreArea;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at")
-    private TemporalType createdAt;
+    private Date createdAt;
     
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at")
-    private TemporalType updatedAt;
+    private Date updatedAt;
+
 
 
     public Long getIdArea() {
@@ -39,30 +36,28 @@ public class Area implements Serializable {
         this.idArea = idArea;
     }
 
-    public String getNombre() {
-        return this.nombre;
+    public String getNombreArea() {
+        return this.nombreArea;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreArea(String nombreArea) {
+        this.nombreArea = nombreArea;
     }
 
-    public TemporalType getCreatedAt() {
+    public Date getCreatedAt() {
         return this.createdAt;
     }
 
-    public void setCreatedAt(TemporalType createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
-    public TemporalType getUpdatedAt() {
+    public Date getUpdatedAt() {
         return this.updatedAt;
     }
 
-    public void setUpdatedAt(TemporalType updatedAt) {
+    public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
-   
-
-    
+        
 }

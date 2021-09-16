@@ -1,6 +1,5 @@
 package com.UPT.inventario.Model;
 
-import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,114 +8,111 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 @Entity
 @Table(name = "solicitud_aceptada")
-public class Solicitud_aceptada implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Solicitud_aceptada {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_solicitud_aceptada")
-    private Long ida;
+    private Long idAceptada;
+    
     @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
-    @Column(name = "id_solicitud")
-    private Long ids;
+    private Solicitud_usuario idSolicitud;
+    
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
-    @Column(name = "id_item")
-    private Long iditem;
+    private Item idItem;
+    
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_ususario")
-    @Column(name = "id_usuario")
-    private Long idu;
+    private Usuario idUsuario;
+
     @Column(name = "descripcion")
-    private String descrip;
+    private String descripcion;
     
     @Column(name = "fecha_ingresada")
     private Date Finicial;
+
     @Column(name = "fecha_retiro")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date Fretiro;
+
     @Column(name = "created_at")
-    private TemporalType createdAt;
+    private Date createdAt;
+
     @Column(name = "updated_at")
-    private TemporalType updatedAt;
-    
+    private Date updatedAt;
 
 
-    public Long getIda() {
-        return ida;
+    public Long getIdAceptada() {
+        return this.idAceptada;
     }
 
-    public void setIda(Long ida) {
-        this.ida = ida;
+    public void setIdAceptada(Long idAceptada) {
+        this.idAceptada = idAceptada;
     }
 
-    public Long getIds() {
-        return ids;
+    public Solicitud_usuario getIdSolicitud() {
+        return this.idSolicitud;
     }
 
-    public void setIds(Long ids) {
-        this.ids = ids;
+    public void setIdSolicitud(Solicitud_usuario idSolicitud) {
+        this.idSolicitud = idSolicitud;
     }
 
-    public Long getIditem() {
-        return iditem;
+    public Item getIdItem() {
+        return this.idItem;
     }
 
-    public void setIditem(Long iditem) {
-        this.iditem = iditem;
+    public void setIdItem(Item idItem) {
+        this.idItem = idItem;
     }
 
-    public Long getIdu() {
-        return idu;
+    public Usuario getIdUsuario() {
+        return this.idUsuario;
     }
 
-    public void setIdu(Long idu) {
-        this.idu = idu;
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public String getDescrip() {
-        return descrip;
+    public String getDescripcion() {
+        return this.descripcion;
     }
 
-    public void setDescrip(String descrip) {
-        this.descrip = descrip;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Date getFinicial() {
-        return Finicial;
+        return this.Finicial;
     }
 
-    public void setFinicial(Date finicial) {
-        Finicial = finicial;
+    public void setFinicial(Date Finicial) {
+        this.Finicial = Finicial;
     }
 
     public Date getFretiro() {
-        return Fretiro;
+        return this.Fretiro;
     }
 
-    public void setFretiro(Date fretiro) {
-        Fretiro = fretiro;
+    public void setFretiro(Date Fretiro) {
+        this.Fretiro = Fretiro;
     }
 
-    public TemporalType getCreatedAt() {
-        return createdAt;
+    public Date getCreatedAt() {
+        return this.createdAt;
     }
 
-    public void setCreatedAt(TemporalType createAt) {
-        this.createdAt = createAt;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public TemporalType getUpdatedAt() {
-        return updatedAt;
+    public Date getUpdatedAt() {
+        return this.updatedAt;
     }
 
-    public void setUpdatedAt(TemporalType updateAt) {
-        this.updatedAt = updateAt;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
 }

@@ -1,18 +1,13 @@
 package com.UPT.inventario.Model;
-<<<<<<< HEAD
+import java.sql.Date;
 
-=======
->>>>>>> b5985feb11043d6e432c9f75ae359c8c98c4f4b0
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
-<<<<<<< HEAD
-=======
-import javax.persistence.JoinColumn;
->>>>>>> b5985feb11043d6e432c9f75ae359c8c98c4f4b0
 
 @Entity
 @Table(name = "sancion_aplicada")
@@ -22,59 +17,61 @@ public class Sancion_aplicada {
     @Column(name="id_sancion_usuario_apli")
     private Long idSanUsuApli;
 
-    @Column(name = "id_sancion_usuario", nullable = false)
-    private long idSanUsua;
+    @JoinColumn(name = "id_sancion_usuario", referencedColumnName = "id_sancion_usuario")
+    private Sancion_aplicada idSanUsua;
 
-    @Column(name = "id_usuario", nullable = false)
-    private long idUsuario;
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    private Usuario idUsuario;
     
-    @Column(name = "id_item", nullable = false)
-    private long idItem;
+    @JoinColumn(name = "id_item", referencedColumnName = "id_item")
+    private Item idItem;
 
     @Column(name = "motivo_operador", nullable = false)
     private String motivoOperador;
 
     @Column(name = "fecha_ingresada", nullable = false)
-    private String fechaIngresada;
+    private Date fechaIngresada;
 
     @Column(name = "fecha_limite", nullable = false)
-    private String fechaLimite;
+    private Date fechaLimite;
 
     @Column(name="created_at", nullable = false)
-    private String created_at;
+    private Date created_at;
 
     @Column(name="updated_at", nullable = false)
-    private String updated_at;
+    private Date updated_at;
 
-    public long getIdSanUsuApli() {
+
+
+    public Long getIdSanUsuApli() {
         return this.idSanUsuApli;
     }
 
-    public void setIdSanUsuApli(long idSanUsuApli) {
+    public void setIdSanUsuApli(Long idSanUsuApli) {
         this.idSanUsuApli = idSanUsuApli;
     }
 
-    public long getIdSanUsua() {
+    public Sancion_aplicada getIdSanUsua() {
         return this.idSanUsua;
     }
 
-    public void setIdSanUsua(long idSanUsua) {
+    public void setIdSanUsua(Sancion_aplicada idSanUsua) {
         this.idSanUsua = idSanUsua;
     }
 
-    public long getIdUsuario() {
+    public Usuario getIdUsuario() {
         return this.idUsuario;
     }
 
-    public void setIdUsuario(long idUsuario) {
+    public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public long getIdItem() {
+    public Item getIdItem() {
         return this.idItem;
     }
 
-    public void setIdItem(long idItem) {
+    public void setIdItem(Item idItem) {
         this.idItem = idItem;
     }
 
@@ -86,37 +83,36 @@ public class Sancion_aplicada {
         this.motivoOperador = motivoOperador;
     }
 
-    public String getFechaIngresada() {
+    public Date getFechaIngresada() {
         return this.fechaIngresada;
     }
 
-    public void setFechaIngresada(String fechaIngresada) {
+    public void setFechaIngresada(Date fechaIngresada) {
         this.fechaIngresada = fechaIngresada;
     }
 
-    public String getFechaLimite() {
+    public Date getFechaLimite() {
         return this.fechaLimite;
     }
 
-    public void setFechaLimite(String fechaLimite) {
+    public void setFechaLimite(Date fechaLimite) {
         this.fechaLimite = fechaLimite;
     }
 
-    public String getCreated_at() {
+    public Date getCreated_at() {
         return this.created_at;
     }
 
-    public void setCreated_at(String created_at) {
+    public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
 
-    public String getUpdated_at() {
+    public Date getUpdated_at() {
         return this.updated_at;
     }
 
-    public void setUpdated_at(String updated_at) {
+    public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
     }
-
-
+        
 }

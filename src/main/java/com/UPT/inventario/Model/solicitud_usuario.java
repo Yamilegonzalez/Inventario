@@ -1,21 +1,19 @@
 package com.UPT.inventario.Model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< HEAD
-=======
-import javax.persistence.JoinColumn;
->>>>>>> b5985feb11043d6e432c9f75ae359c8c98c4f4b0
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
 
 @Entity
 @Table(name = "solicitud_usuario")
-public class solicitud_usuario {
+public class Solicitud_usuario{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,20 +33,19 @@ public class solicitud_usuario {
     private Item idItem;
 
     @Column(name="fecha_inicio", nullable = false)
-    private String fechaInicio;
+    private Date fechaInicio;
 
     @Column(name="fecha_final", nullable = false)
-    private String fechaFinal;
+    private Date fechaFinal;
 
     @Column(name="motivo", nullable = false)
     private String motivo;
 
     @Column(name="created_at", nullable = false)
-    private String created_at;
+    private Date created_at;
 
     @Column(name="updated_at", nullable = false)
-    private String updated_at;
-
+    private Date updated_at;
 
 
     public Long getIdSolicitud() {
@@ -91,19 +88,19 @@ public class solicitud_usuario {
         this.idItem = idItem;
     }
 
-    public String getFechaInicio() {
+    public Date getFechaInicio() {
         return this.fechaInicio;
     }
 
-    public void setFechaInicio(String fechaInicio) {
+    public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public String getFechaFinal() {
+    public Date getFechaFinal() {
         return this.fechaFinal;
     }
 
-    public void setFechaFinal(String fechaFinal) {
+    public void setFechaFinal(Date fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
 
@@ -115,20 +112,20 @@ public class solicitud_usuario {
         this.motivo = motivo;
     }
 
-    public String getCreated_at() {
+    public Date getCreated_at() {
         return this.created_at;
     }
 
-    public void setCreated_at(String created_at) {
+    public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
 
-    public String getUpdated_at() {
+    public Date getUpdated_at() {
         return this.updated_at;
     }
 
-    public void setUpdated_at(String updated_at) {
+    public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
     }
-        
+            
 }

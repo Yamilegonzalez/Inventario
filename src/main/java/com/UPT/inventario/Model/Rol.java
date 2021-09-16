@@ -1,5 +1,7 @@
 package com.UPT.inventario.Model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,10 +21,10 @@ public class Rol{
     private String nombreRol;
 
     @Column(name="created_at", nullable = false)
-    private String created_at;
+    private Date created_at;
 
     @Column(name="updated_at", nullable = false)
-    private String updated_at;
+    private Date updated_at;
 
     public void setIdRol(long idRol){
         this.idRol = idRol;
@@ -36,10 +38,10 @@ public class Rol{
     public String getNombreRol(){
         return this.nombreRol;
     }
-    public void getCreated_at(String created_at){
+    public void getCreated_at(Date created_at){
         this.created_at = created_at;
     }
-    public String getUpdated_at(String updated_at){
+    public Date getUpdated_at(){
         return this.updated_at;
     }
 
