@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "solicitud_usuario")
-public class Solicitud_usuario{
+public class solicitud_usuario{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Solicitud_usuario{
     private Long idSolicitud;
 
     @JoinColumn(name = "id_estatus", referencedColumnName = "id_estatus")
-    private Estatus_item idEstatus;
+    private estatus_item idEstatus;
 
     @Column(name="folio_solicitud", nullable = false)
     private String folioSolicitud;
@@ -56,11 +56,11 @@ public class Solicitud_usuario{
         this.idSolicitud = idSolicitud;
     }
 
-    public Estatus_item getIdEstatus() {
+    public estatus_item getIdEstatus() {
         return this.idEstatus;
     }
 
-    public void setIdEstatus(Estatus_item idEstatus) {
+    public void setIdEstatus(estatus_item idEstatus) {
         this.idEstatus = idEstatus;
     }
 

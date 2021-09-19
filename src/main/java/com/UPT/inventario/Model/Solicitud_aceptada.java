@@ -19,7 +19,7 @@ public class Solicitud_aceptada {
     private Long idAceptada;
     
     @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
-    private Solicitud_usuario idSolicitud;
+    private solicitud_usuario idSolicitud;
     
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
     private Item idItem;
@@ -51,11 +51,11 @@ public class Solicitud_aceptada {
         this.idAceptada = idAceptada;
     }
 
-    public Solicitud_usuario getIdSolicitud() {
+    public solicitud_usuario getIdSolicitud() {
         return this.idSolicitud;
     }
 
-    public void setIdSolicitud(Solicitud_usuario idSolicitud) {
+    public void setIdSolicitud(solicitud_usuario idSolicitud) {
         this.idSolicitud = idSolicitud;
     }
 

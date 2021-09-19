@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "estatus_item")
-public class Estatus_item{
+public class estatus_item{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id_estatus")
