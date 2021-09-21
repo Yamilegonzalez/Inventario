@@ -1,23 +1,26 @@
 package com.UPT.inventario.Model;
-
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
 @Table(name = "item")
+@SuppressWarnings("serial")
 public class Item {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name = "id_item")
     private Long idItem;
 
     @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
+    @ManyToOne(optional = false)
     private Categoria_item idCategoria;
 
     @Column(name = "no_serie")
@@ -43,13 +46,13 @@ public class Item {
         this.idItem = idItem;
     }
 
-    public Categoria_item getIdCategoria() {
-        return this.idCategoria;
-    }
+    // public Categoria_item getIdCategoria() {
+    //     return this.idCategoria;
+    // }
 
-    public void setIdCategoria(Categoria_item idCategoria) {
-        this.idCategoria = idCategoria;
-    }
+    // public void setIdCategoria(Categoria_item idCategoria) {
+    //     this.idCategoria = idCategoria;
+    // }
 
     public int getNSerie() {
         return this.NSerie;

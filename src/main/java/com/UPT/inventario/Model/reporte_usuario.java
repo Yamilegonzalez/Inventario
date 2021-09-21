@@ -19,13 +19,13 @@ public class Reporte_usuario {
     private Long idReportUsuario;
 
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
-    private Usuario idUsuario;
+    private Long idUsuario;
 
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
-    private Item idItem;
+    private Long idItem;
 
     @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
-    private Solicitud_usuario Solicitud;
+    private Long Solicitud;
 
     @Column(name = "motivo", nullable = false)
     private String motivo;
@@ -52,29 +52,29 @@ public class Reporte_usuario {
         this.idReportUsuario = idReportUsuario;
     }
 
-    public Usuario getIdUsuario() {
-        return this.idUsuario;
-    }
+    // public Usuario getIdUsuario() {
+    //     return this.idUsuario;
+    // }
 
-    public void setIdUsuario(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+    // public void setIdUsuario(Usuario idUsuario) {
+    //     this.idUsuario = idUsuario;
+    // }
 
-    public Item getIdItem() {
-        return this.idItem;
-    }
+    // public Item getIdItem() {
+    //     return this.idItem;
+    // }
 
-    public void setIdItem(Item idItem) {
-        this.idItem = idItem;
-    }
+    // public void setIdItem(Item idItem) {
+    //     this.idItem = idItem;
+    // }
 
-    public Solicitud_usuario getSolicitud() {
-        return this.Solicitud;
-    }
+    // public Solicitud_usuario getSolicitud() {
+    //     return this.Solicitud;
+    // }
 
-    public void setSolicitud(Solicitud_usuario Solicitud) {
-        this.Solicitud = Solicitud;
-    }
+    // public void setSolicitud(Solicitud_usuario Solicitud) {
+    //     this.Solicitud = Solicitud;
+    // }
 
     public String getMotivo() {
         return this.motivo;

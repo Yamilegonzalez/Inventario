@@ -18,13 +18,13 @@ public class Sancion_aplicada {
     private Long idSanUsuApli;
 
     @JoinColumn(name = "id_sancion_usuario", referencedColumnName = "id_sancion_usuario")
-    private Sancion_aplicada idSanUsua;
+    private Long idSanUsua;
 
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
-    private Usuario idUsuario;
+    private Long idUsuario;
     
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
-    private Item idItem;
+    private Long idItem;
 
     @Column(name = "motivo_operador", nullable = false)
     private String motivoOperador;
@@ -51,29 +51,29 @@ public class Sancion_aplicada {
         this.idSanUsuApli = idSanUsuApli;
     }
 
-    public Sancion_aplicada getIdSanUsua() {
-        return this.idSanUsua;
-    }
+    // public Sancion_aplicada getIdSanUsua() {
+    //     return this.idSanUsua;
+    // }
 
-    public void setIdSanUsua(Sancion_aplicada idSanUsua) {
-        this.idSanUsua = idSanUsua;
-    }
+    // public void setIdSanUsua(Sancion_aplicada idSanUsua) {
+    //     this.idSanUsua = idSanUsua;
+    // }
 
-    public Usuario getIdUsuario() {
-        return this.idUsuario;
-    }
+    // public Usuario getIdUsuario() {
+    //     return this.idUsuario;
+    // }
 
-    public void setIdUsuario(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+    // public void setIdUsuario(Usuario idUsuario) {
+    //     this.idUsuario = idUsuario;
+    // }
 
-    public Item getIdItem() {
-        return this.idItem;
-    }
+    // public Item getIdItem() {
+    //     return this.idItem;
+    // }
 
-    public void setIdItem(Item idItem) {
-        this.idItem = idItem;
-    }
+    // public void setIdItem(Item idItem) {
+    //     this.idItem = idItem;
+    // }
 
     public String getMotivoOperador() {
         return this.motivoOperador;

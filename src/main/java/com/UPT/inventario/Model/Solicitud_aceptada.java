@@ -19,13 +19,13 @@ public class Solicitud_aceptada {
     private Long idAceptada;
     
     @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
-    private Solicitud_usuario idSolicitud;
+    private Long idSolicitud;
     
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
-    private Item idItem;
+    private Long idItem;
     
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_ususario")
-    private Usuario idUsuario;
+    private Long idUsuario;
 
     @Column(name = "descripcion")
     private String descripcion;
@@ -51,29 +51,29 @@ public class Solicitud_aceptada {
         this.idAceptada = idAceptada;
     }
 
-    public Solicitud_usuario getIdSolicitud() {
-        return this.idSolicitud;
-    }
+    // public Solicitud_usuario getIdSolicitud() {
+    //     return this.idSolicitud;
+    // }
 
-    public void setIdSolicitud(Solicitud_usuario idSolicitud) {
-        this.idSolicitud = idSolicitud;
-    }
+    // public void setIdSolicitud(Solicitud_usuario idSolicitud) {
+    //     this.idSolicitud = idSolicitud;
+    // }
 
-    public Item getIdItem() {
-        return this.idItem;
-    }
+    // public Item getIdItem() {
+    //     return this.idItem;
+    // }
 
-    public void setIdItem(Item idItem) {
-        this.idItem = idItem;
-    }
+    // public void setIdItem(Item idItem) {
+    //     this.idItem = idItem;
+    // }
 
-    public Usuario getIdUsuario() {
-        return this.idUsuario;
-    }
+    // public Usuario getIdUsuario() {
+    //     return this.idUsuario;
+    // }
 
-    public void setIdUsuario(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+    // public void setIdUsuario(Usuario idUsuario) {
+    //     this.idUsuario = idUsuario;
+    // }
 
     public String getDescripcion() {
         return this.descripcion;

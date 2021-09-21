@@ -18,10 +18,10 @@ public class Sanciones_usuario{
     private Long idSancionUsu;
     
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
-    private Usuario idUsuario;
+    private Long idUsuario;
     
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
-    private Item idItem;
+    private Long idItem;
     
     @Column(name = "motivo_sistema")
     private String motivoSistema;
@@ -50,21 +50,21 @@ public class Sanciones_usuario{
         this.idSancionUsu = idSancionUsu;
     }
 
-    public Usuario getIdUsuario() {
-        return this.idUsuario;
-    }
+    // public Usuario getIdUsuario() {
+    //     return this.idUsuario;
+    // }
 
-    public void setIdUsuario(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+    // public void setIdUsuario(Usuario idUsuario) {
+    //     this.idUsuario = idUsuario;
+    // }
 
-    public Item getIdItem() {
-        return this.idItem;
-    }
+    // public Item getIdItem() {
+    //     return this.idItem;
+    // }
 
-    public void setIdItem(Item idItem) {
-        this.idItem = idItem;
-    }
+    // public void setIdItem(Item idItem) {
+    //     this.idItem = idItem;
+    // }
 
     public String getMotivoSistema() {
         return this.motivoSistema;

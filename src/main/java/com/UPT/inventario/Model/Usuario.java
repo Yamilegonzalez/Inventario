@@ -18,10 +18,10 @@ public class Usuario {
     private Long idUsuario;
 
     @JoinColumn(name = "id_area", referencedColumnName = "id_area")
-    private Area idArea;
+    private Long idArea;
 
     @JoinColumn(name = "id_rol", referencedColumnName = "id_rol")
-    private Rol idRol;
+    private Long idRol;
 
     @Column(name = "primer_nombre", nullable = false)
     private String primerNombre;
@@ -61,21 +61,21 @@ public class Usuario {
         this.idUsuario = idUsuario;
     }
 
-    public Area getIdArea() {
-        return idArea;
-    }
+    // public Area getIdArea() {
+    //     return idArea;
+    // }
 
-    public void setIdArea(Area idArea) {
-        this.idArea = idArea;
-    }
+    // public void setIdArea(Area idArea) {
+    //     this.idArea = idArea;
+    // }
 
-    public Rol getIdRol() {
-        return this.idRol;
-    }
+    // public Rol getIdRol() {
+    //     return this.idRol;
+    // }
 
-    public void setIdRol(Rol idRol) {
-        this.idRol = idRol;
-    }
+    // public void setIdRol(Rol idRol) {
+    //     this.idRol = idRol;
+    // }
 
     public String getPrimerNombre() {
         return primerNombre;

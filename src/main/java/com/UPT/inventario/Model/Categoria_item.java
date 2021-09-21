@@ -1,5 +1,6 @@
 package com.UPT.inventario.Model;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +11,10 @@ import java.util.Date;
 
 @Entity
 @Table(name="categoria_item")
+@SuppressWarnings("serial")
 public class Categoria_item {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name = "id_categoria")
     private Long idCategoria;
     
