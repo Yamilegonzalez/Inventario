@@ -2,30 +2,34 @@ package com.UPT.inventario.Model;
 
 import java.sql.Date;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "reporte_usuario")
+@SuppressWarnings("serial")
 public class Reporte_usuario {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name = "id_reporte_usuario")
     private Long idReportUsuario;
 
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
-    private Long idUsuario;
+    @ManyToOne(optional = false)
+    private Usuario idUsuario;
 
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
-    private Long idItem;
+    @ManyToOne(optional = false)
+    private Item idItem;
 
     @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
-    private Long Solicitud;
+    @ManyToOne(optional = false)
+    private Solicitud_usuario Solicitud;
 
     @Column(name = "motivo", nullable = false)
     private String motivo;
@@ -52,29 +56,29 @@ public class Reporte_usuario {
         this.idReportUsuario = idReportUsuario;
     }
 
-    // public Usuario getIdUsuario() {
-    //     return this.idUsuario;
-    // }
+    public Usuario getIdUsuario() {
+        return this.idUsuario;
+    }
 
-    // public void setIdUsuario(Usuario idUsuario) {
-    //     this.idUsuario = idUsuario;
-    // }
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-    // public Item getIdItem() {
-    //     return this.idItem;
-    // }
+    public Item getIdItem() {
+        return this.idItem;
+    }
 
-    // public void setIdItem(Item idItem) {
-    //     this.idItem = idItem;
-    // }
+    public void setIdItem(Item idItem) {
+        this.idItem = idItem;
+    }
 
-    // public Solicitud_usuario getSolicitud() {
-    //     return this.Solicitud;
-    // }
+    public Solicitud_usuario getSolicitud() {
+        return this.Solicitud;
+    }
 
-    // public void setSolicitud(Solicitud_usuario Solicitud) {
-    //     this.Solicitud = Solicitud;
-    // }
+    public void setSolicitud(Solicitud_usuario Solicitud) {
+        this.Solicitud = Solicitud;
+    }
 
     public String getMotivo() {
         return this.motivo;

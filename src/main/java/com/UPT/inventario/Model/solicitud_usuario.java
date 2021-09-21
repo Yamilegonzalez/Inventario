@@ -2,35 +2,39 @@ package com.UPT.inventario.Model;
 
 import java.util.Date;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
 @Entity
 @Table(name = "solicitud_usuario")
+@SuppressWarnings("serial")
 public class Solicitud_usuario{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name="id_solicitud")
     private Long idSolicitud;
 
     @JoinColumn(name = "id_estatus", referencedColumnName = "id_estatus")
-    private Long idEstatus;
+    @ManyToOne(optional = false)
+    private Estatus_item idEstatus;
 
     @Column(name="folio_solicitud", nullable = false)
     private String folioSolicitud;
 
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
-    private Long idUsuario;
+    @ManyToOne(optional = false)
+    private Usuario idUsuario;
     
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
-    private Long idItem;
+    @ManyToOne(optional = false)
+    private Item idItem;
 
     @Column(name="fecha_inicio", nullable = false)
     private Date fechaInicio;
@@ -56,37 +60,37 @@ public class Solicitud_usuario{
         this.idSolicitud = idSolicitud;
     }
 
-    // public Estatus_item getIdEstatus() {
-    //     return this.idEstatus;
-    // }
+    public Estatus_item getIdEstatus() {
+        return this.idEstatus;
+    }
 
-    // public void setIdEstatus(Estatus_item idEstatus) {
-    //     this.idEstatus = idEstatus;
-    // }
+    public void setIdEstatus(Estatus_item idEstatus) {
+        this.idEstatus = idEstatus;
+    }
 
-    // public String getFolioSolicitud() {
-    //     return this.folioSolicitud;
-    // }
+    public String getFolioSolicitud() {
+        return this.folioSolicitud;
+    }
 
-    // public void setFolioSolicitud(String folioSolicitud) {
-    //     this.folioSolicitud = folioSolicitud;
-    // }
+    public void setFolioSolicitud(String folioSolicitud) {
+        this.folioSolicitud = folioSolicitud;
+    }
 
-    // public Usuario getIdUsuario() {
-    //     return this.idUsuario;
-    // }
+    public Usuario getIdUsuario() {
+        return this.idUsuario;
+    }
 
-    // public void setIdUsuario(Usuario idUsuario) {
-    //     this.idUsuario = idUsuario;
-    // }
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-    // public Item getIdItem() {
-    //     return this.idItem;
-    // }
+    public Item getIdItem() {
+        return this.idItem;
+    }
 
-    // public void setIdItem(Item idItem) {
-    //     this.idItem = idItem;
-    // }
+    public void setIdItem(Item idItem) {
+        this.idItem = idItem;
+    }
 
     public Date getFechaInicio() {
         return this.fechaInicio;

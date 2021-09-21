@@ -1,30 +1,34 @@
 package com.UPT.inventario.Model;
 import java.sql.Date;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "sancion_aplicada")
+@SuppressWarnings("serial")
 public class Sancion_aplicada {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name="id_sancion_usuario_apli")
     private Long idSanUsuApli;
 
     @JoinColumn(name = "id_sancion_usuario", referencedColumnName = "id_sancion_usuario")
-    private Long idSanUsua;
+    @ManyToOne(optional = false)
+    private Sanciones_usuario idSanUsua;
 
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
-    private Long idUsuario;
+    @ManyToOne(optional = false)
+    private Usuario idUsuario;
     
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
-    private Long idItem;
+    @ManyToOne(optional = false)
+    private Item idItem;
 
     @Column(name = "motivo_operador", nullable = false)
     private String motivoOperador;
@@ -51,29 +55,21 @@ public class Sancion_aplicada {
         this.idSanUsuApli = idSanUsuApli;
     }
 
-    // public Sancion_aplicada getIdSanUsua() {
-    //     return this.idSanUsua;
-    // }
+    public Usuario getIdUsuario() {
+        return this.idUsuario;
+    }
 
-    // public void setIdSanUsua(Sancion_aplicada idSanUsua) {
-    //     this.idSanUsua = idSanUsua;
-    // }
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-    // public Usuario getIdUsuario() {
-    //     return this.idUsuario;
-    // }
+    public Item getIdItem() {
+        return this.idItem;
+    }
 
-    // public void setIdUsuario(Usuario idUsuario) {
-    //     this.idUsuario = idUsuario;
-    // }
-
-    // public Item getIdItem() {
-    //     return this.idItem;
-    // }
-
-    // public void setIdItem(Item idItem) {
-    //     this.idItem = idItem;
-    // }
+    public void setIdItem(Item idItem) {
+        this.idItem = idItem;
+    }
 
     public String getMotivoOperador() {
         return this.motivoOperador;

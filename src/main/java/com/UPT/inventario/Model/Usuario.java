@@ -1,27 +1,30 @@
 package com.UPT.inventario.Model;
 import java.sql.Date;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "usuario")
+@SuppressWarnings("serial")
 public class Usuario {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name="id_usuario")
     private Long idUsuario;
 
     @JoinColumn(name = "id_area", referencedColumnName = "id_area")
-    private Long idArea;
+    @ManyToOne(optional = false)
+    private Area idArea;
 
     @JoinColumn(name = "id_rol", referencedColumnName = "id_rol")
-    private Long idRol;
+    @ManyToOne(optional = false)
+    private Rol idRol;
 
     @Column(name = "primer_nombre", nullable = false)
     private String primerNombre;
@@ -61,21 +64,21 @@ public class Usuario {
         this.idUsuario = idUsuario;
     }
 
-    // public Area getIdArea() {
-    //     return idArea;
-    // }
+    public Area getIdArea() {
+        return idArea;
+    }
 
-    // public void setIdArea(Area idArea) {
-    //     this.idArea = idArea;
-    // }
+    public void setIdArea(Area idArea) {
+        this.idArea = idArea;
+    }
 
-    // public Rol getIdRol() {
-    //     return this.idRol;
-    // }
+    public Rol getIdRol() {
+        return this.idRol;
+    }
 
-    // public void setIdRol(Rol idRol) {
-    //     this.idRol = idRol;
-    // }
+    public void setIdRol(Rol idRol) {
+        this.idRol = idRol;
+    }
 
     public String getPrimerNombre() {
         return primerNombre;
