@@ -41,7 +41,7 @@ public class Usuario {
     @Column(name = "matricula", nullable = false)
     private String matricula;
 
-    @Column(name = "numero_telefono", nullable = false)
+    @Column(name = "num_telefono", nullable = false)
     private String numTelefono;
 
     @Column(name = "correo", nullable = false)
