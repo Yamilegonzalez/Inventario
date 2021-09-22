@@ -21,11 +21,11 @@ public class Sanciones_usuario{
     
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
     @ManyToOne(optional = false)
-    private Long idUsuario;
+    private Usuario idUsuario;
     
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
     @ManyToOne(optional = false)
-    private Long idItem;
+    private Item idItem;
     
     @Column(name = "motivo_sistema")
     private String motivoSistema;
@@ -53,19 +53,19 @@ public class Sanciones_usuario{
         this.idSancionUsu = idSancionUsu;
     }
 
-    public Long getIdUsuario() {
+    public Usuario getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Long idUsuario) {
+    public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public Long getIdItem() {
+    public Item getIdItem() {
         return idItem;
     }
 
-    public void setIdItem(Long idItem) {
+    public void setIdItem(Item idItem) {
         this.idItem = idItem;
     }
 

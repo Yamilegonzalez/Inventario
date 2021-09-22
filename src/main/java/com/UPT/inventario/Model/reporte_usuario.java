@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "reporte_usuario")
 @SuppressWarnings("serial")
-public class reporte_usuario {
+public class Reporte_usuario {
     @Id
     @Basic(optional = false)
     @Column(name = "id_reporte_usuario")
@@ -29,7 +29,7 @@ public class reporte_usuario {
 
     @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
     @ManyToOne(optional = false)
-    private solicitud_usuario Solicitud;
+    private Solicitud_usuario Solicitud;
 
     @Column(name = "motivo", nullable = false)
     private String motivo;
@@ -72,11 +72,11 @@ public class reporte_usuario {
         this.idItem = idItem;
     }
 
-    public solicitud_usuario getSolicitud() {
+    public Solicitud_usuario getSolicitud() {
         return this.Solicitud;
     }
 
-    public void setSolicitud(solicitud_usuario Solicitud) {
+    public void setSolicitud(Solicitud_usuario Solicitud) {
         this.Solicitud = Solicitud;
     }
 

@@ -25,15 +25,15 @@ public class Solicitud_aceptada {
     
     @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
     @ManyToOne(optional = false)
-    private Long idSolicitud;
+    private Solicitud_usuario idSolicitud;
     
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
     @ManyToOne(optional = false)
-    private Long idItem;
+    private Item idItem;
     
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id_ususario")
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
     @ManyToOne(optional = false)
-    private Long idUsuario;
+    private Usuario idUsuario;
 
     @Column(name = "descripcion")
     private String descripcion;
@@ -59,27 +59,27 @@ public class Solicitud_aceptada {
         this.idAceptada = idAceptada;
     }
 
-    public Long getIdSolicitud() {
+    public Solicitud_usuario getIdSolicitud() {
         return idSolicitud;
     }
 
-    public void setIdSolicitud(Long idSolicitud) {
+    public void setIdSolicitud(Solicitud_usuario idSolicitud) {
         this.idSolicitud = idSolicitud;
     }
 
-    public Long getIdItem() {
+    public Item getIdItem() {
         return idItem;
     }
 
-    public void setIdItem(Long idItem) {
+    public void setIdItem(Item idItem) {
         this.idItem = idItem;
     }
 
-    public Long getIdUsuario() {
+    public Usuario getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Long idUsuario) {
+    public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
 
