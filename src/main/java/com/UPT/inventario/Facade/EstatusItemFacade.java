@@ -9,24 +9,24 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.UPT.inventario.Model.Usuario;
+import com.UPT.inventario.Model.Estatus_item;
 
 @Component
-public class UsuarioFacade {
-
+public class EstatusItemFacade {
+    
     @PersistenceContext
     EntityManager em;
     
-    public List<Usuario> getAllUsuario() {
-        List<Usuario> result = new ArrayList<Usuario>();
-            String select = "SELECT * FROM usuario";
+    public List<Estatus_item> getAllEstatusItem() {
+        List<Estatus_item> result = new ArrayList<Estatus_item>();
+            String select = "SELECT * FROM estatus_item";
 
-             Query query = em.createNativeQuery(select, Usuario.class);
+             Query query = em.createNativeQuery(select, Estatus_item.class);
         try {
-            result =  castList(Usuario.class, query.getResultList());
+            result =  castList(Estatus_item.class, query.getResultList());
 
         } catch (Exception e) {
-            System.err.println("Error al obtener getAllUsuario:" + e.getMessage());
+            System.err.println("Error al obtener getAllEstatus_item:" + e.getMessage());
         }
 
         return result;
@@ -39,5 +39,5 @@ public class UsuarioFacade {
         return r;
 
     }
-
+    
 }

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.UPT.inventario.Facade.UsuarioFacade;
 import com.UPT.inventario.Model.Usuario;
-import java.util.Collection;
 import java.util.List;
 import java.util.ArrayList;
 

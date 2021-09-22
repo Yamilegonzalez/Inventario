@@ -9,35 +9,34 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.UPT.inventario.Model.Usuario;
+import com.UPT.inventario.Model.Rol;
 
 @Component
-public class UsuarioFacade {
+public class RolFacade {
 
     @PersistenceContext
     EntityManager em;
-    
-    public List<Usuario> getAllUsuario() {
-        List<Usuario> result = new ArrayList<Usuario>();
-            String select = "SELECT * FROM usuario";
 
-             Query query = em.createNativeQuery(select, Usuario.class);
+    public List<Rol> getAllRol() {
+        List<Rol> result = new ArrayList<Rol>();
+            String select = "SELECT * FROM rol";
+
+             Query query = em.createNativeQuery(select, Rol.class);
         try {
-            result =  castList(Usuario.class, query.getResultList());
+            result =  castList(Rol.class, query.getResultList());
 
         } catch (Exception e) {
-            System.err.println("Error al obtener getAllUsuario:" + e.getMessage());
+            System.err.println("Error al obtener getAllRol:" + e.getMessage());
         }
 
         return result;
     }
+
     public static <T> List<T> castList(Class<? extends T> clazz, Collection<?> c) {
-        
         List<T> r = new ArrayList<T>(c.size());
         for(Object o: c)
-        r.add(clazz.cast(o));
+          r.add(clazz.cast(o));
         return r;
-
     }
-
+    
 }

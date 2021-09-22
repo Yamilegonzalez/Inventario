@@ -9,35 +9,34 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.UPT.inventario.Model.Usuario;
+import com.UPT.inventario.Model.Reporte_usuario;
 
 @Component
-public class UsuarioFacade {
-
+public class ReporteUFacade {
     @PersistenceContext
     EntityManager em;
-    
-    public List<Usuario> getAllUsuario() {
-        List<Usuario> result = new ArrayList<Usuario>();
-            String select = "SELECT * FROM usuario";
 
-             Query query = em.createNativeQuery(select, Usuario.class);
+    public List<Reporte_usuario> getAllReporteUsuario() {
+        
+        List<Reporte_usuario> result = new ArrayList<Reporte_usuario>();    
+        String select = "SELECT * FROM reporte_usuario";
+        Query query = em.createNativeQuery(select, Reporte_usuario.class);
         try {
-            result =  castList(Usuario.class, query.getResultList());
+            result =  castList(Reporte_usuario.class, query.getResultList());
 
         } catch (Exception e) {
-            System.err.println("Error al obtener getAllUsuario:" + e.getMessage());
+            System.err.println("Error al obtener getAllReporte_usuario:" + e.getMessage());
         }
 
         return result;
     }
+
+
+
     public static <T> List<T> castList(Class<? extends T> clazz, Collection<?> c) {
-        
         List<T> r = new ArrayList<T>(c.size());
         for(Object o: c)
         r.add(clazz.cast(o));
         return r;
-
     }
-
 }
