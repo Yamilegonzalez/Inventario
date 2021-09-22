@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "estatus_item")
 @SuppressWarnings("serial")
-public class Estatus_item{
+public class estatus_item{
     @Id
     @Basic(optional = false)
     @Column(name="id_estatus")

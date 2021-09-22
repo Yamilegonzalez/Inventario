@@ -1,30 +1,38 @@
 package com.UPT.inventario.Model;
 
 import java.util.Date;
+
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "solicitud_aceptada")
+@SuppressWarnings("serial")
 public class Solicitud_aceptada {
     @Id
+    @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_solicitud_aceptada")
     private Long idAceptada;
     
     @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
+    @ManyToOne(optional = false)
     private Long idSolicitud;
     
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
+    @ManyToOne(optional = false)
     private Long idItem;
     
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_ususario")
+    @ManyToOne(optional = false)
     private Long idUsuario;
 
     @Column(name = "descripcion")
@@ -44,39 +52,39 @@ public class Solicitud_aceptada {
 
 
     public Long getIdAceptada() {
-        return this.idAceptada;
+        return idAceptada;
     }
 
     public void setIdAceptada(Long idAceptada) {
         this.idAceptada = idAceptada;
     }
 
-    // public Solicitud_usuario getIdSolicitud() {
-    //     return this.idSolicitud;
-    // }
+    public Long getIdSolicitud() {
+        return idSolicitud;
+    }
 
-    // public void setIdSolicitud(Solicitud_usuario idSolicitud) {
-    //     this.idSolicitud = idSolicitud;
-    // }
+    public void setIdSolicitud(Long idSolicitud) {
+        this.idSolicitud = idSolicitud;
+    }
 
-    // public Item getIdItem() {
-    //     return this.idItem;
-    // }
+    public Long getIdItem() {
+        return idItem;
+    }
 
-    // public void setIdItem(Item idItem) {
-    //     this.idItem = idItem;
-    // }
+    public void setIdItem(Long idItem) {
+        this.idItem = idItem;
+    }
 
-    // public Usuario getIdUsuario() {
-    //     return this.idUsuario;
-    // }
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
 
-    // public void setIdUsuario(Usuario idUsuario) {
-    //     this.idUsuario = idUsuario;
-    // }
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
     public String getDescripcion() {
-        return this.descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
@@ -84,23 +92,23 @@ public class Solicitud_aceptada {
     }
 
     public Date getFinicial() {
-        return this.Finicial;
+        return Finicial;
     }
 
-    public void setFinicial(Date Finicial) {
-        this.Finicial = Finicial;
+    public void setFinicial(Date finicial) {
+        Finicial = finicial;
     }
 
     public Date getFretiro() {
-        return this.Fretiro;
+        return Fretiro;
     }
 
-    public void setFretiro(Date Fretiro) {
-        this.Fretiro = Fretiro;
+    public void setFretiro(Date fretiro) {
+        Fretiro = fretiro;
     }
 
     public Date getCreatedAt() {
-        return this.createdAt;
+        return createdAt;
     }
 
     public void setCreatedAt(Date createdAt) {
@@ -108,7 +116,7 @@ public class Solicitud_aceptada {
     }
 
     public Date getUpdatedAt() {
-        return this.updatedAt;
+        return updatedAt;
     }
 
     public void setUpdatedAt(Date updatedAt) {

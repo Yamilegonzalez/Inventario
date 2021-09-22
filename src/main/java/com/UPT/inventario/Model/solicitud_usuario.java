@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 @Entity
 @Table(name = "solicitud_usuario")
 @SuppressWarnings("serial")
-public class Solicitud_usuario{
+public class solicitud_usuario{
 
     @Id
     @Basic(optional = false)
@@ -23,7 +23,7 @@ public class Solicitud_usuario{
 
     @JoinColumn(name = "id_estatus", referencedColumnName = "id_estatus")
     @ManyToOne(optional = false)
-    private Estatus_item idEstatus;
+    private estatus_item idEstatus;
 
     @Column(name="folio_solicitud", nullable = false)
     private String folioSolicitud;
@@ -60,11 +60,11 @@ public class Solicitud_usuario{
         this.idSolicitud = idSolicitud;
     }
 
-    public Estatus_item getIdEstatus() {
+    public estatus_item getIdEstatus() {
         return this.idEstatus;
     }
 
-    public void setIdEstatus(Estatus_item idEstatus) {
+    public void setIdEstatus(estatus_item idEstatus) {
         this.idEstatus = idEstatus;
     }
 

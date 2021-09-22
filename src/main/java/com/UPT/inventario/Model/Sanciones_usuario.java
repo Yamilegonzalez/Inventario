@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,9 +20,11 @@ public class Sanciones_usuario{
     private Long idSancionUsu;
     
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    @ManyToOne(optional = false)
     private Long idUsuario;
     
     @JoinColumn(name = "id_item", referencedColumnName = "id_item")
+    @ManyToOne(optional = false)
     private Long idItem;
     
     @Column(name = "motivo_sistema")
@@ -42,33 +45,32 @@ public class Sanciones_usuario{
     @Column(name = "updated_at")
     private Date updatedAt;
 
-
     public Long getIdSancionUsu() {
-        return this.idSancionUsu;
+        return idSancionUsu;
     }
 
     public void setIdSancionUsu(Long idSancionUsu) {
         this.idSancionUsu = idSancionUsu;
     }
 
-    // public Usuario getIdUsuario() {
-    //     return this.idUsuario;
-    // }
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
 
-    // public void setIdUsuario(Usuario idUsuario) {
-    //     this.idUsuario = idUsuario;
-    // }
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-    // public Item getIdItem() {
-    //     return this.idItem;
-    // }
+    public Long getIdItem() {
+        return idItem;
+    }
 
-    // public void setIdItem(Item idItem) {
-    //     this.idItem = idItem;
-    // }
+    public void setIdItem(Long idItem) {
+        this.idItem = idItem;
+    }
 
     public String getMotivoSistema() {
-        return this.motivoSistema;
+        return motivoSistema;
     }
 
     public void setMotivoSistema(String motivoSistema) {
@@ -76,31 +78,31 @@ public class Sanciones_usuario{
     }
 
     public Date getFinicial() {
-        return this.Finicial;
+        return Finicial;
     }
 
-    public void setFinicial(Date Finicial) {
-        this.Finicial = Finicial;
+    public void setFinicial(Date finicial) {
+        Finicial = finicial;
     }
 
     public Date getFretiro() {
-        return this.Fretiro;
+        return Fretiro;
     }
 
-    public void setFretiro(Date Fretiro) {
-        this.Fretiro = Fretiro;
+    public void setFretiro(Date fretiro) {
+        Fretiro = fretiro;
     }
 
     public Date getFLimite() {
-        return this.FLimite;
+        return FLimite;
     }
 
-    public void setFLimite(Date FLimite) {
-        this.FLimite = FLimite;
+    public void setFLimite(Date fLimite) {
+        FLimite = fLimite;
     }
 
     public Date getCreatedAt() {
-        return this.createdAt;
+        return createdAt;
     }
 
     public void setCreatedAt(Date createdAt) {
@@ -108,11 +110,13 @@ public class Sanciones_usuario{
     }
 
     public Date getUpdatedAt() {
-        return this.updatedAt;
+        return updatedAt;
     }
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
 
+
+   
 }
