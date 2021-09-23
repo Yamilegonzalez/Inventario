@@ -16,7 +16,7 @@ public class SolicitudAFacade {
     public List<Solicitud_aceptada> getAllSolicitudAceptada() {
         
         List<Solicitud_aceptada> result = new ArrayList<Solicitud_aceptada>();    
-        String select = "SELECT * FROM reporte_usuario";
+        String select = "SELECT * FROM solicitud_aceptada";
         Query query = em.createNativeQuery(select, Solicitud_aceptada.class);
         try {
             result =  castList(Solicitud_aceptada.class, query.getResultList());
@@ -33,9 +33,5 @@ public class SolicitudAFacade {
         for(Object o: c)
         r.add(clazz.cast(o));
         return r;
-    }
-
-    public List<Solicitud_aceptada> getAllsolicitudA() {
-        return null;
     }
 }

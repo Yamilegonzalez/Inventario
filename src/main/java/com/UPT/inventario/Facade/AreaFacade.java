@@ -17,9 +17,9 @@ public class AreaFacade {
     @PersistenceContext
     EntityManager em;
 
-    public List<Area> getAllRol() {
+    public List<Area> getAllAreas() {
         List<Area> result = new ArrayList<Area>();
-            String select = "SELECT * FROM rol";
+            String select = "SELECT * FROM area";
 
              Query query = em.createNativeQuery(select, Area.class);
         try {

@@ -18,7 +18,7 @@ public class ItemFacade {
 
     public List<Item> getAllItem() {
         List<Item> result = new ArrayList<Item>();
-            String select = "SELECT * FROM rol";
+            String select = "SELECT * FROM item";
 
              Query query = em.createNativeQuery(select, Item.class);
         try {

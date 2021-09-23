@@ -6,10 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import java.util.List;
-
 import com.UPT.inventario.Facade.AreaFacade;
 import com.UPT.inventario.Model.Area;
-
 import java.util.ArrayList;
 
 
@@ -19,7 +17,7 @@ public class AreaController {
     @Autowired
     private AreaFacade AreaFacade;
 
-    @GetMapping("/getAllRols")
+    @GetMapping("/getAllAreas")
     public List<Area> getAllAreas() {
         List<Area> area = new ArrayList<Area>();
         area = AreaFacade.getAllAreas();

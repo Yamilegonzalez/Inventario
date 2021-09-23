@@ -6,10 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
 import com.UPT.inventario.Facade.ItemFacade;
 import com.UPT.inventario.Model.Item;
-
 import java.util.ArrayList;
 
 @RestController

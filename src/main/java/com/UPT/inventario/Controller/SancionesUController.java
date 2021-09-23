@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import com.UPT.inventario.Facade.SancionAFacade;
+import com.UPT.inventario.Facade.SancionesUFacade;
 import com.UPT.inventario.Model.Sanciones_usuario;
 
 import java.util.ArrayList;
@@ -16,12 +16,12 @@ import java.util.ArrayList;
 @RequestMapping("/API")
 public class SancionesUController {
     @Autowired
-    private SancionAFacade sancionUFacade;
+    private SancionesUFacade sancionUFacade;
 
     @GetMapping("/getAllSancionUsuario")
     public List<Sanciones_usuario> getAllSancionUsuario(){
         List<Sanciones_usuario> sancionUsu = new ArrayList<Sanciones_usuario>();
-        sancionUsu = sancionUFacade.getAllSancionUsuarrio();
+        sancionUsu = sancionUFacade.getAllSancionesUsuario();
         return sancionUsu;
     }
 }

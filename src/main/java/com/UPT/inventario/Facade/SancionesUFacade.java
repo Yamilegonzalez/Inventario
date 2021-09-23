@@ -16,7 +16,7 @@ public class SancionesUFacade {
     public List<Sanciones_usuario> getAllSancionesUsuario() {
         
         List<Sanciones_usuario> result = new ArrayList<Sanciones_usuario>();    
-        String select = "SELECT * FROM reporte_usuario";
+        String select = "SELECT * FROM sanciones_usuario";
         Query query = em.createNativeQuery(select, Sanciones_usuario.class);
         try {
             result =  castList(Sanciones_usuario.class, query.getResultList());
@@ -33,7 +33,5 @@ public class SancionesUFacade {
         r.add(clazz.cast(o));
         return r;
     }
-    public List<Sanciones_usuario> getAllsolicitudA() {
-        return null;
-    }
+  
 }
