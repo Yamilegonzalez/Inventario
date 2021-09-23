@@ -5,6 +5,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.UPT.inventario.Model.Sancion_aplicada;
+import com.UPT.inventario.Model.Sanciones_usuario;
 
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
@@ -34,6 +35,10 @@ public class SancionAFacade {
         for(Object o: c)
           r.add(clazz.cast(o));
         return r;
+    }
+
+    public List<Sanciones_usuario> getAllSancionUsuarrio() {
+        return null;
     }
 
     
