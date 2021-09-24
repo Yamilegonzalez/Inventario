@@ -26,23 +26,38 @@ public class Rol{
     @Column(name="updated_at", nullable = false)
     private Date updated_at;
 
-    public void setIdRol(long idRol){
-        this.idRol = idRol;
-    }
-    public long getIdRol(){
+
+    public long getIdRol() {
         return this.idRol;
     }
-    public void setNombreRol(String nombreRol){
-        this.nombreRol = nombreRol;
+
+    public void setIdRol(long idRol) {
+        this.idRol = idRol;
     }
-    public String getNombreRol(){
+
+    public String getNombreRol() {
         return this.nombreRol;
     }
-    public void getCreated_at(Date created_at){
+
+    public void setNombreRol(String nombreRol) {
+        this.nombreRol = nombreRol;
+    }
+
+    public Date getCreated_at() {
+        return this.created_at;
+    }
+
+    public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
-    public Date getUpdated_at(){
+
+    public Date getUpdated_at() {
         return this.updated_at;
     }
+
+    public void setUpdated_at(Date updated_at) {
+        this.updated_at = updated_at;
+    }
+    
 
 }

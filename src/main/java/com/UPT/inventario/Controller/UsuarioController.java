@@ -2,7 +2,11 @@ package com.UPT.inventario.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.UPT.inventario.Facade.UsuarioFacade;
@@ -28,5 +32,36 @@ public class UsuarioController {
         user = usuarioFacade.getAllUsuario();
         return user;
     }
+
+
+ @PostMapping("/getUsersByName")
+    public List<Usuario> getUsersByName(@RequestParam("name") String name) {
+        List<Usuario> user = new ArrayList<Usuario>();
+        user = usuarioFacade.getUsuariosByName(name);
+        return user;
+    }
+
+ @GetMapping("/getUsersByName2/{name}")
+    public List<Usuario> getUsersByName2(@PathVariable String name) {
+        List<Usuario> user = new ArrayList<Usuario>();
+        user = usuarioFacade.getUsuariosByName(name);
+        return user;
+    }
+
+    @PostMapping("/insertUsuarioObjeto")
+    public String insertUsuarioObjeto(@RequestBody Usuario usuario) {  
+    try{
+        int res = usuarioFacade.insertUsuarioObjeto(usuario);
+        if(res==1){
+        return "Usuario insertado";
+        }else{
+            return "Error al insertar area";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al insertar area";        
+    }
+    
+  }
 
 }

@@ -2,6 +2,8 @@ package com.UPT.inventario.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +25,21 @@ public class ReporteUController {
         reporteUsuario = reporteUFacade.getAllReporteUsuario();
         return reporteUsuario;
     }
+    
+    @PostMapping("/insertReporteUObjeto")
+    public String insertReporteUObjeto(@RequestBody Reporte_usuario reporteUsuario) {  
+    try{
+        int res = reporteUFacade.insertReporteUObjeto(reporteUsuario);
+        if(res==1){
+        return "Reporte Usuario insertado";
+        }else{
+            return "Error al insertar reporte usuario";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al insertar reporte usuario";        
+    }
+    
+  } 
     
 }

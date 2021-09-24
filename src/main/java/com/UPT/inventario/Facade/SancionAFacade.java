@@ -3,6 +3,7 @@ package com.UPT.inventario.Facade;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import com.UPT.inventario.Model.Sancion_aplicada;
 import com.UPT.inventario.Model.Sanciones_usuario;
@@ -39,6 +40,21 @@ public class SancionAFacade {
 
     public List<Sanciones_usuario> getAllSancionUsuarrio() {
         return null;
+    }
+
+    @Transactional
+    public Integer insertSancionA(Sancion_aplicada sancionApli) {
+        String insert = "INSERT INTO sancion_aplicada(motivo_operador, fecha_ingresada, fecha_limite, created_at)"+ 
+        "VALUES ('"+sancionApli.getMotivoOperador()+"','"+sancionApli.getFechaIngresada()+"','"+sancionApli.getFechaLimite()+"','"+sancionApli.getCreated_at()+"');";
+            
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en insertproductos:" + e.getMessage());
+            return 0;
+        } 
     }
 
     

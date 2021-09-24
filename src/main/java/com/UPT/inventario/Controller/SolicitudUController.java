@@ -2,6 +2,8 @@ package com.UPT.inventario.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +25,22 @@ public class SolicitudUController {
         solicitudUsuario = solicitudUFacade.getAllSolicitudUsuario();
         return solicitudUsuario;
     }
+    
+    @PostMapping("/insertSolicitudUObjeto")
+    public String insertSolicitudUObjeto(@RequestBody Solicitud_usuario solicitudUsuario) {  
+    try{
+        int res = solicitudUFacade.insertSolicitudUObjeto(solicitudUsuario);
+        if(res==1){
+        return "Solicitud usuario insertada";
+        }else{
+            return "Error al insertar solicitud usuario";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al insertar solicitud usuario";        
+    }
+    
+  }
+    
     
 }

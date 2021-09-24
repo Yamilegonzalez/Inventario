@@ -2,6 +2,8 @@ package com.UPT.inventario.Facade;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
+
 import com.UPT.inventario.Model.Sanciones_usuario;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
@@ -33,5 +35,20 @@ public class SancionesUFacade {
         r.add(clazz.cast(o));
         return r;
     }
+    
+    @Transactional
+    public Integer insertSancionesUObjeto(Sanciones_usuario sancionesUsuario) {
+        String insert = "QUERY";
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en insert sanciones usuario:" + e.getMessage());
+            return 0;
+        } 
+    }
+
+
   
 }

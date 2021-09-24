@@ -3,6 +3,8 @@ package com.UPT.inventario.Facade;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -38,6 +40,19 @@ public class EstatusItemFacade {
         r.add(clazz.cast(o));
         return r;
 
+    }
+
+    @Transactional
+    public Integer insertEstatusIObjeto(Estatus_item estatusItem) {
+        String insert = "";
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en insert estatus item:" + e.getMessage());
+            return 0;
+        } 
     }
     
 }
