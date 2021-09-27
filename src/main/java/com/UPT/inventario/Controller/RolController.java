@@ -34,11 +34,11 @@ public class RolController {
         if(res==1){
         return "rol insertado";
         }else{
-            return "Error al insertar area";
+            return "Error al insertar rol";
         }       
     }catch(Exception e){            
         System.out.println("Error: " + e.getMessage());
-        return "Error al insertar area";        
+        return "Error al insertar rol";        
     }
     
   }

@@ -28,10 +28,10 @@ public class SancionAController {
         return sancionApli;
     }
     
-    @PostMapping("/insertSancionAplicada")
-    public String insertAreaObjeto(@RequestBody Sancion_aplicada sancionAplicada) {  
+    @PostMapping("/insertSancionAObjeto")
+    public String insertSancionAObjeto(@RequestBody Sancion_aplicada sancionAplicada) {  
     try{
-        int res = sancionAFacade.insertSancionA(sancionAplicada);
+        int res = sancionAFacade.insertSancionAplicadaObjeto(sancionAplicada);
         if(res==1){
         return "Insert sancionAplicada insertada";
         }else{

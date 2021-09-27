@@ -55,11 +55,11 @@ public class UsuarioController {
         if(res==1){
         return "Usuario insertado";
         }else{
-            return "Error al insertar area";
+            return "Error al insertar usuario";
         }       
     }catch(Exception e){            
         System.out.println("Error: " + e.getMessage());
-        return "Error al insertar area";        
+        return "Error al insertar usuario";        
     }
     
   }
