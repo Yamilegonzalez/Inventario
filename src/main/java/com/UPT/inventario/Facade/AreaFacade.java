@@ -53,6 +53,7 @@ public class AreaFacade {
             return 0;
         } 
     }
+    
 
     @Transactional
     public Integer insertAreaObjeto(Area area) {

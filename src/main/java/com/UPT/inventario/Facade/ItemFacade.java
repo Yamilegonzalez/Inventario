@@ -3,6 +3,7 @@ package com.UPT.inventario.Facade;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import com.UPT.inventario.Model.Item;
 
@@ -37,5 +38,35 @@ public class ItemFacade {
           r.add(clazz.cast(o));
         return r;
     }
+    @Transactional
+    public Integer insertItem(String item, String createdAt) {
+        String insert = "INSERT INTO item(item, created_at) VALUES ('"+item+"','"+createdAt+"');";
+
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en items:" + e.getMessage());
+            return 0;
+        } 
+    }
+    
+
+    @Transactional
+    public Integer insertItemObjeto(Item item) {
+        String insert = "INSERT INTO area(item, created_at) VALUES ('"+item.getIdItem()+"','"+item.getCreatedAt()+"');";
+
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en insertproductos:" + e.getMessage());
+            return 0;
+        } 
+    }
+
+
     
 }

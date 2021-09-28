@@ -68,5 +68,9 @@ public class Categoria_item {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    public String getCategoriaI() {
+        return null;
+    }
     
 }

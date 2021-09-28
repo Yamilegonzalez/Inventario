@@ -14,7 +14,6 @@ import java.util.List;
 public class SancionesUFacade {
     @PersistenceContext
     EntityManager em;
-
     public List<Sanciones_usuario> getAllSancionesUsuario() {
         
         List<Sanciones_usuario> result = new ArrayList<Sanciones_usuario>();    
@@ -35,9 +34,8 @@ public class SancionesUFacade {
         r.add(clazz.cast(o));
         return r;
     }
-    
     @Transactional
-    public Integer insertSancionesUObjeto(Sanciones_usuario sancionesUsuario) {
+    public Integer insertSancionesU(Sanciones_usuario sancionesUsuario) {
         String insert = "QUERY";
         Query query = em.createNativeQuery(insert);
         try {
@@ -48,7 +46,18 @@ public class SancionesUFacade {
             return 0;
         } 
     }
+    @Transactional
+    public static Integer insertSancionesUObjeto( Sanciones_usuario sancionesUsuario) {
+        String insert = "INSERT INTO solicituda(solicitud_aceptada, created_at) VALUES ('"+sancionesUsuario.getSancionesUsuario()+"','"+sancionesUsuario.getCreatedAt()+"');";
 
-
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en insertproductos:" + e.getMessage());
+            return 0;
+        } 
+    }
   
 }
