@@ -44,7 +44,7 @@ public class SancionAFacade {
 
     @Transactional
     public Integer insertSancionAplicadaObjeto(Sancion_aplicada sancionApli) {
-        String insert = "INSERT INTO sancion_aplicada(motivo_operador, fecha_ingresada, fecha_limite, created_at)"+ 
+        String insert = "INSERT INTO sancion_aplicada(id_sancion_usuario, id_usuario, motivo_operador, fecha_ingresada, fecha_limite, created_at)"+ 
         "VALUES ('"+sancionApli.getMotivoOperador()+"','"+sancionApli.getFechaIngresada()+"','"+sancionApli.getFechaLimite()+"','"+sancionApli.getCreated_at()+"');";
             
         Query query = em.createNativeQuery(insert);

@@ -41,8 +41,10 @@ public class ItemFacade {
 
     @Transactional
     public Integer insertItemObjeto(Item item) {
-        String insert = "QUERY";
+        String insert = "INSERT INTO item(id_categoria, no_serie, nombre_item, descripcion, created_at)"+ 
+        "VALUES ("+item.getIdCategoria().getIdCategoria()+",'"+item.getNumSerie()+"','"+item.getNombreItem()+"','"+item.getDescripcion()+"','"+item.getCreatedAt()+"');";
 
+        System.out.println(insert);
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();
