@@ -22,7 +22,7 @@ public class Item {
     private Categoria_item idCategoria;
 
     @Column(name = "no_serie")
-    private int NSerie;
+    private String numSerie;
 
     @Column(name = "nombre_item")
     private String nombreItem;
@@ -35,6 +35,7 @@ public class Item {
 
     @Column(name = "updated_at")
     private Date updatedAt;
+
 
     public Long getIdItem() {
         return this.idItem;
@@ -52,13 +53,17 @@ public class Item {
         this.idCategoria = idCategoria;
     }
 
-    public int getNSerie() {
-        return this.NSerie;
+
+
+    public String getNumSerie() {
+        return this.numSerie;
     }
 
-    public void setNSerie(int NSerie) {
-        this.NSerie = NSerie;
+    public void setNumSerie(String numSerie) {
+        this.numSerie = numSerie;
     }
+ 
+  
 
     public String getNombreItem() {
         return this.nombreItem;
@@ -91,5 +96,6 @@ public class Item {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
+    
             
 }

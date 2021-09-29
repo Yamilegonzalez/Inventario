@@ -5,7 +5,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+<<<<<<< HEAD
 import com.UPT.inventario.Controller.SolicitudAController;
+=======
+>>>>>>> 9b2f0b8f85a593fde2b25e2f5abf3a71284cc59a
 import com.UPT.inventario.Model.Solicitud_aceptada;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
@@ -38,6 +41,7 @@ public class SolicitudAFacade {
             r.add(clazz.cast(o));
         return r;
     }
+<<<<<<< HEAD
 
     @Transactional
     public Integer insertSolicitudA(String solicitud, String createdAt) {
@@ -58,6 +62,11 @@ public class SolicitudAFacade {
     public Integer insertSolicitudAObjeto(SolicitudAFacade solicitud) {
         String insert = "INSERT INTO solicituda(solicitud_aceptada, created_at) VALUES ('" + solicitud.getSolicitudA()
                 + "','" + solicitud.getCreatedAt() + "');";
+=======
+    @Transactional
+    public Integer insertSolicitudAObjeto(Solicitud_aceptada solicitudAceptada) {
+        String insert = "QUERY";
+>>>>>>> 9b2f0b8f85a593fde2b25e2f5abf3a71284cc59a
 
         Query query = em.createNativeQuery(insert);
         try {
@@ -66,6 +75,10 @@ public class SolicitudAFacade {
         } catch (Exception e) {
             System.err.println("Error en insertproductos:" + e.getMessage());
             return 0;
+<<<<<<< HEAD
         }
+=======
+        } 
+>>>>>>> 9b2f0b8f85a593fde2b25e2f5abf3a71284cc59a
     }
 }

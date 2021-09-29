@@ -28,6 +28,7 @@ public class CategoriaIController {
             CategoriaItem = CategoriaItFacades.getAllCategoriaItem();
             return CategoriaItem;
         }
+<<<<<<< HEAD
         @PostMapping("/insertCategoriaI")
         public String insertCategoriaI(@RequestParam("nombreArea") String categoriaI,
                 @RequestParam("createdAt") String createdAt) {
@@ -61,5 +62,23 @@ public class CategoriaIController {
     
         }
     
+=======
+
+        @PostMapping("/insertCategoriaIObjeto")
+        public String insertCategoriaIObjeto(@RequestBody Categoria_item categoriaItem) {  
+        try{
+            int res = CategoriaItFacades.insertCategoriaIObjeto(categoriaItem);
+            if(res==1){
+            return "categoria item insertada";
+            }else{
+                return "Error al insertar  item categoria";
+            }       
+        }catch(Exception e){            
+            System.out.println("Error: " + e.getMessage());
+            return "Error al insertar item categoria";        
+        }
+        
+      }
+>>>>>>> 9b2f0b8f85a593fde2b25e2f5abf3a71284cc59a
     
 }

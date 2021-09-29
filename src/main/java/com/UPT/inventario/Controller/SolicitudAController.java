@@ -59,4 +59,22 @@ public class SolicitudAController {
         }
 
     }
+<<<<<<< HEAD
+=======
+    @PostMapping("/insertSolicitudAObjeto")
+    public String insertSolicitudAObjeto(@RequestBody Solicitud_aceptada solicitudAcepta) {  
+    try{
+        int res = solicitudaFacade.insertSolicitudAObjeto(solicitudAcepta);
+        if(res==1){
+        return "solicitud aceptada insertada";
+        }else{
+            return "Error al insertar solicitud aceptada";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al insertar solicitud aceptada";
+    }
+    
+  }
+>>>>>>> 9b2f0b8f85a593fde2b25e2f5abf3a71284cc59a
 }

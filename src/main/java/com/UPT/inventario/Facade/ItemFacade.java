@@ -38,6 +38,7 @@ public class ItemFacade {
           r.add(clazz.cast(o));
         return r;
     }
+<<<<<<< HEAD
     @Transactional
     public Integer insertItem(String item, String createdAt) {
         String insert = "INSERT INTO item(item, created_at) VALUES ('"+item+"','"+createdAt+"');";
@@ -57,16 +58,32 @@ public class ItemFacade {
     public Integer insertItemObjeto(Item item) {
         String insert = "INSERT INTO area(item, created_at) VALUES ('"+item.getIdItem()+"','"+item.getCreatedAt()+"');";
 
+=======
+
+    @Transactional
+    public Integer insertItemObjeto(Item item) {
+        String insert = "INSERT INTO item(id_categoria, no_serie, nombre_item, descripcion, created_at)"+ 
+        "VALUES ("+item.getIdCategoria().getIdCategoria()+",'"+item.getNumSerie()+"','"+item.getNombreItem()+"','"+item.getDescripcion()+"','"+item.getCreatedAt()+"');";
+
+        System.out.println(insert);
+>>>>>>> 9b2f0b8f85a593fde2b25e2f5abf3a71284cc59a
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();
             return 1;
         } catch (Exception e) {
+<<<<<<< HEAD
             System.err.println("Error en insertproductos:" + e.getMessage());
             return 0;
         } 
     }
 
 
+=======
+            System.err.println("Error en insert item:" + e.getMessage());
+            return 0;
+        } 
+    }
+>>>>>>> 9b2f0b8f85a593fde2b25e2f5abf3a71284cc59a
     
 }

@@ -20,7 +20,7 @@ public class Sancion_aplicada {
 
     @JoinColumn(name = "id_sancion_usuario", referencedColumnName = "id_sancion_usuario")
     @ManyToOne(optional = false)
-    private Sanciones_usuario idSanUsua;
+    private Sanciones_usuario idSancionUsuario;
 
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
     @ManyToOne(optional = false)
@@ -53,6 +53,14 @@ public class Sancion_aplicada {
 
     public void setIdSanUsuApli(Long idSanUsuApli) {
         this.idSanUsuApli = idSanUsuApli;
+    }
+
+    public Sanciones_usuario getIdSancionUsuario() {
+        return this.idSancionUsuario;
+    }
+
+    public void setIdSancionUsuario(Sanciones_usuario idSancionUsuario) {
+        this.idSancionUsuario = idSancionUsuario;
     }
 
     public Usuario getIdUsuario() {
@@ -110,5 +118,5 @@ public class Sancion_aplicada {
     public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
     }
-        
+    
 }

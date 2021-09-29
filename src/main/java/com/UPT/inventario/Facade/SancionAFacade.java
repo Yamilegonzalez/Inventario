@@ -43,8 +43,8 @@ public class SancionAFacade {
     }
 
     @Transactional
-    public Integer insertSancionA(Sancion_aplicada sancionApli) {
-        String insert = "INSERT INTO sancion_aplicada(motivo_operador, fecha_ingresada, fecha_limite, created_at)"+ 
+    public Integer insertSancionAplicadaObjeto(Sancion_aplicada sancionApli) {
+        String insert = "INSERT INTO sancion_aplicada(id_sancion_usuario, id_usuario, motivo_operador, fecha_ingresada, fecha_limite, created_at)"+ 
         "VALUES ('"+sancionApli.getMotivoOperador()+"','"+sancionApli.getFechaIngresada()+"','"+sancionApli.getFechaLimite()+"','"+sancionApli.getCreated_at()+"');";
             
         Query query = em.createNativeQuery(insert);
@@ -52,7 +52,7 @@ public class SancionAFacade {
             query.executeUpdate();
             return 1;
         } catch (Exception e) {
-            System.err.println("Error en insertproductos:" + e.getMessage());
+            System.err.println("Error en insert sancion aplicada:" + e.getMessage());
             return 0;
         } 
     }

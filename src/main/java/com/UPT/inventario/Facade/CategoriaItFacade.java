@@ -42,14 +42,20 @@ public class CategoriaItFacade {
     }
 
     @Transactional
+<<<<<<< HEAD
     public Integer insertCategoriaI(String categoriaI, String createdAt) {
         String insert = "INSERT INTO area(categoriaI, created_at) VALUES ('" + categoriaI + "','" + createdAt + "');";
+=======
+    public Integer insertCategoriaIObjeto(Categoria_item categoriaItem) {
+        String insert = "QUERY";
+>>>>>>> 9b2f0b8f85a593fde2b25e2f5abf3a71284cc59a
 
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();
             return 1;
         } catch (Exception e) {
+<<<<<<< HEAD
             System.err.println("Error en insertproductos:" + e.getMessage());
             return 0;
         }
@@ -69,4 +75,11 @@ public class CategoriaItFacade {
             return 0;
         }
     }
+=======
+            System.err.println("Error en insert categoria item:" + e.getMessage());
+            return 0;
+        } 
+    }
+
+>>>>>>> 9b2f0b8f85a593fde2b25e2f5abf3a71284cc59a
 }

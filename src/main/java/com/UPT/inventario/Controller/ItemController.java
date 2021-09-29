@@ -26,6 +26,7 @@ public class ItemController {
         return item;
     }
 
+<<<<<<< HEAD
     @PostMapping("/insertItem")
     public String insertitem(@RequestParam("Item") String item, @RequestParam("createdAt") String createdAt) {
         try {
@@ -58,4 +59,22 @@ public class ItemController {
 
     }
 
+=======
+    @PostMapping("/insertItemObjeto")
+    public String insertItemObjeto(@RequestBody Item item) {  
+    try{
+        int res = ItemFacade.insertItemObjeto(item);
+        if(res==1){
+        return "item insertado";
+        }else{
+            return "Error al insertar item";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al insertar item";        
+    }
+    
+  }
+    
+>>>>>>> 9b2f0b8f85a593fde2b25e2f5abf3a71284cc59a
 }
