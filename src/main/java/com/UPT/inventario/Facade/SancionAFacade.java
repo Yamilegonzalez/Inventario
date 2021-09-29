@@ -69,6 +69,19 @@ public class SancionAFacade {
             System.err.println("Error en update sancion aplicada:" + e.getMessage());
             return 0;
         }
-    } 
+    }
+    @Transactional
+    public Integer deleteSancionAplicadaObjeto(Long idSanUsuApli) {
+        String insert = "DELETE FROM sancion_aplicada WHERE id_sancion_usuario_apli="+idSanUsuApli;
+        System.out.println(insert);    
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en delete sancion aplicada:" + e.getMessage());
+            return 0;
+        }
+    }  
     
 }

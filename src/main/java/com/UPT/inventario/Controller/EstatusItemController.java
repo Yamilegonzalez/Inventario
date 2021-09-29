@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.UPT.inventario.Facade.EstatusItemFacade;
@@ -55,6 +56,21 @@ public class EstatusItemController {
         return "Error al actualizar estatus item";        
     }
     
+  }
+  @PostMapping("/deleteEstatusIObjeto")
+    public String deleteEstatusIObjeto(@RequestParam("idEstatus") Long idEstatus) {  
+    try{
+        int res = estatusItemFacade.deleteEstatusIObjeto(idEstatus);
+        if(res==1){
+        return "estatus item eliminado";
+        }else{
+            return "Error al borrar estatus item";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al borrar estatus item";        
+    }
+
   }
     
 }

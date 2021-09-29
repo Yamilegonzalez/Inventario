@@ -68,5 +68,18 @@ public class EstatusItemFacade {
             return 0;
         } 
     }
+    @Transactional
+    public Integer deleteEstatusIObjeto(Long idEstatus) {
+        String insert = "DELETE FROM estatus_item WHERE id_estatus="+idEstatus;
+        System.out.println(insert);    
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en delete estatus item:" + e.getMessage());
+            return 0;
+        }
+    }
     
 }

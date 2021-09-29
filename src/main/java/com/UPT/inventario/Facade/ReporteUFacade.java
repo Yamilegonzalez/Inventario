@@ -69,4 +69,17 @@ public class ReporteUFacade {
             return 0;
         } 
     }
+    @Transactional
+    public Integer deleteReporteUObjeto(Long idReporteUsuario) {
+        String insert = "DELETE FROM reporte_usuario WHERE id_reporte_usuario="+idReporteUsuario;
+        System.out.println(insert);    
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en delete reporte usuario:" + e.getMessage());
+            return 0;
+        }
+    }
 }

@@ -66,5 +66,18 @@ public class RolFacade {
             return 0;
         } 
     }
+    @Transactional
+    public Integer deleteRolObjeto(Long idRol) {
+        String insert = "DELETE FROM rol WHERE id_rol="+idRol;
+        System.out.println(insert);    
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en delete rol:" + e.getMessage());
+            return 0;
+        }
+    }
     
 }

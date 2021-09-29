@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.UPT.inventario.Facade.SolicitudUFacade;
@@ -55,6 +56,21 @@ public class SolicitudUController {
         return "Error al actualizar solicitud usuario";        
     }
     
+  }
+  @PostMapping("/deleteSolicitudUObjeto")
+    public String deleteSolicitudUObjeto(@RequestParam("idSolicitud") Long idSolicitud) {  
+    try{
+        int res = solicitudUFacade.deleteSolicitudUObjeto(idSolicitud);
+        if(res==1){
+        return "solicitud usuario eliminado";
+        }else{
+            return "Error al borrar solicitud usuario";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al borrar solicitud usuario";        
+    }
+
   }
     
     

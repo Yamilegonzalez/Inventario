@@ -78,5 +78,20 @@ public class UsuarioController {
     }
     
   }
+  @PostMapping("/deleteUsuarioObjeto")
+    public String deleteUsuarioObjeto(@RequestParam("idUsuario") Long idUsuario) {  
+    try{
+        int res = usuarioFacade.deleteUsuarioObjeto(idUsuario);
+        if(res==1){
+        return "usuario eliminado";
+        }else{
+            return "Error al borrar usuario";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al borrar usuario";        
+    }
+
+  }
 
 }

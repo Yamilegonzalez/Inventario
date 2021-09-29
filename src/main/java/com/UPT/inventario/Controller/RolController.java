@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -56,5 +57,20 @@ public class RolController {
       return "Error al actualizar rol";        
   }
   
-} 
+}
+@PostMapping("/deleteRolObjeto")
+    public String deleteRolObjeto(@RequestParam("idRol") Long idRol) {  
+    try{
+        int res = rolFacade.deleteRolObjeto(idRol);
+        if(res==1){
+        return "rol borrada";
+        }else{
+            return "Error al borrar rol";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al borrar rol";        
+    }
+
+  } 
 }

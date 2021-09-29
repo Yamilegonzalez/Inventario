@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.UPT.inventario.Facade.SancionAFacade;
@@ -59,5 +60,22 @@ public class SancionAController {
     }
 
   }
+  @PostMapping("/deleteSancionAplicadaObjeto")
+    public String deleteSancionAplicadaObjeto(@RequestParam("idSanUsuApli") Long idSanUsuApli) {  
+    try{
+        int res = sancionAFacade.deleteSancionAplicadaObjeto(idSanUsuApli);
+        if(res==1){
+        return "sancionAplicada borrada";
+        }else{
+            return "Error al borrar Sancion Aplicada";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al borrar sancion aplicada";        
+    }
+
+  }
+
+  
 
  }

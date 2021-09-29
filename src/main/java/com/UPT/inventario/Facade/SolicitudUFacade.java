@@ -70,4 +70,17 @@ public class SolicitudUFacade {
             return 0;
         } 
     }
+    @Transactional
+    public Integer deleteSolicitudUObjeto(Long idSolicitud) {
+        String insert = "DELETE FROM solicitud_usuario WHERE id_solicitud="+idSolicitud;
+        System.out.println(insert);    
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en delete solicitud usuario:" + e.getMessage());
+            return 0;
+        }
+    }
 }

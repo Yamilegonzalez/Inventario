@@ -86,5 +86,18 @@ public class UsuarioFacade {
             return 0;
         } 
     }
+    @Transactional
+    public Integer deleteUsuarioObjeto(Long idUsuario) {
+        String insert = "DELETE FROM usuario WHERE id_usuario="+idUsuario;
+        System.out.println(insert);    
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en delete usuario:" + e.getMessage());
+            return 0;
+        }
+    }
 
 }
