@@ -12,19 +12,20 @@ import java.util.Collection;
 import java.util.List;
 
 import com.UPT.inventario.Model.Categoria_item;
+
 @Component
 public class CategoriaItFacade {
-    
+
     @PersistenceContext
     EntityManager em;
-    
+
     public List<Categoria_item> getAllCategoriaItem() {
         List<Categoria_item> result = new ArrayList<Categoria_item>();
-            String select = "SELECT * FROM categoria_item";
+        String select = "SELECT * FROM categoria_item";
 
-             Query query = em.createNativeQuery(select, Categoria_item.class);
+        Query query = em.createNativeQuery(select, Categoria_item.class);
         try {
-            result =  castList(Categoria_item.class, query.getResultList());
+            result = castList(Categoria_item.class, query.getResultList());
 
         } catch (Exception e) {
             System.err.println("Error al obtener getAllCategoria_item:" + e.getMessage());
@@ -35,8 +36,8 @@ public class CategoriaItFacade {
 
     public static <T> List<T> castList(Class<? extends T> clazz, Collection<?> c) {
         List<T> r = new ArrayList<T>(c.size());
-        for(Object o: c)
-          r.add(clazz.cast(o));
+        for (Object o : c)
+            r.add(clazz.cast(o));
         return r;
     }
 
@@ -44,7 +45,7 @@ public class CategoriaItFacade {
     public Integer insertCategoriaIObjeto(Categoria_item categoriaItem) {
         String insert = "INSERT INTO categoria_item(nombre_categoria,descripcion, created_at)"+ 
         "VALUES ('"+ categoriaItem.getNombreCategoria()+"','"+categoriaItem.getDescripcion()+"','"+categoriaItem.getCreatedAt()+"');";
-       
+    
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();

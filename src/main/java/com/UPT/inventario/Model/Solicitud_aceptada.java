@@ -124,4 +124,8 @@ public class Solicitud_aceptada {
         this.updatedAt = updatedAt;
     }
 
+    public String getSolicitudA() {
+        return null;
+    }
+
 }

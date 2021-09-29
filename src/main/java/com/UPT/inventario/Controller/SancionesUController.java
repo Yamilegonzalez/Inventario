@@ -27,19 +27,21 @@ public class SancionesUController {
         return sancionUsu;
     }
 
-    @PostMapping("/insertSancionesoObjeto")
-    public String insertSancionesObjeto(@RequestBody Sanciones_usuario sancionesUsuario) {
+    @PostMapping("/insertSancionesUObjeto")
+    public String insertSnacionesUObjeto(@RequestBody Sanciones_usuario sancionesUsuario) {
         try {
             int res = sancionUFacade.insertSancionesUObjeto(sancionesUsuario);
             if (res == 1) {
-                return "Sancion usuario insertada";
+                return "SancionesU: " + sancionesUsuario.getIdUsuario() + "," + sancionesUsuario.getCreatedAt()
+                        + " insertada";
             } else {
-                return "Error al asignar sancion usuario";
+                return "Error al insertar sancion";
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
-            return "Error al asignar sancion usuario ";
+            return "Error al insertar sancion";
         }
+
     }
 
 }

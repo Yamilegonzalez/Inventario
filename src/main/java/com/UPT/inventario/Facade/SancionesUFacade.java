@@ -14,7 +14,6 @@ import java.util.List;
 public class SancionesUFacade {
     @PersistenceContext
     EntityManager em;
-
     public List<Sanciones_usuario> getAllSancionesUsuario() {
         
         List<Sanciones_usuario> result = new ArrayList<Sanciones_usuario>();    
@@ -35,7 +34,6 @@ public class SancionesUFacade {
         r.add(clazz.cast(o));
         return r;
     }
-    
     @Transactional
     public Integer insertSancionesUObjeto(Sanciones_usuario sancionesUsuario) {
         String insert = "INSERT INTO sanciones_usuario(id_usuario, id_item, motivo_sistema, fecha_ingresada, fecha_registro, fecha_limite, created_at)"+
@@ -50,7 +48,5 @@ public class SancionesUFacade {
             return 0;
         } 
     }
-
-
   
 }
