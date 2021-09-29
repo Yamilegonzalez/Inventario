@@ -41,5 +41,20 @@ public class EstatusItemController {
     }
     
   }
+  @PostMapping("/updatedEstatusIObjeto")
+    public String updatedEstatusIObjeto(@RequestBody Estatus_item estatusItem) {  
+    try{
+        int res = estatusItemFacade.updatedEstatusIObjeto(estatusItem.getIdEstatus(), estatusItem);
+        if(res==1){
+        return "Estatus item actualizado";
+        }else{
+            return "Error al actualizar estatus item";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al actualizar estatus item";        
+    }
+    
+  }
     
 }

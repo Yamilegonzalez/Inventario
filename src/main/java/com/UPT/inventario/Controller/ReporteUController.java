@@ -40,6 +40,21 @@ public class ReporteUController {
         return "Error al insertar reporte usuario";        
     }
     
-  } 
+  }
+  @PostMapping("/updatedReporteUObjeto")
+    public String updatedReporteUObjeto(@RequestBody Reporte_usuario reporteUsuario) {  
+    try{
+        int res = reporteUFacade.updatedReporteUObjeto(reporteUsuario.getIdReportUsuario(), reporteUsuario);
+        if(res==1){
+        return "Reporte Usuario actualizado";
+        }else{
+            return "Error al actualizar reporte usuario";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al actualizar reporte usuario";        
+    }
+    
+  }  
     
 }

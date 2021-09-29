@@ -55,4 +55,18 @@ public class ReporteUFacade {
             return 0;
         } 
     }
+    @Transactional
+    public Integer updatedReporteUObjeto(Long idReporteUsuario ,Reporte_usuario reporteUsuario) {
+        String insert = "UPDATE reporte_usuario SET id_usuario="+reporteUsuario.getIdUsuario().getIdUsuario()+", id_item="+reporteUsuario.getIdItem().getIdItem()+",id_solicitud="+reporteUsuario.getidSolicitud().getIdSolicitud()+",motivo='"+reporteUsuario.getMotivo()+"',descripcion='"+reporteUsuario.getDescripcion()+"',url_img='"+reporteUsuario.getUrl_img()+"',created_at='"+reporteUsuario.getCreated_at()+"'"+
+        "WHERE id_reporte_usuario = "+idReporteUsuario+";";
+        System.out.println(insert);
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en updated productos:" + e.getMessage());
+            return 0;
+        } 
+    }
 }

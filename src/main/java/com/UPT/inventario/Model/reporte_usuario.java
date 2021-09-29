@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "reporte_usuario")
 @SuppressWarnings("serial")
-public class Reporte_usuario {
+public class Reporte_usuario{
     @Id
     @Basic(optional = false)
     @Column(name = "id_reporte_usuario")
@@ -119,6 +119,4 @@ public class Reporte_usuario {
     public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
     }
-    
-
 }

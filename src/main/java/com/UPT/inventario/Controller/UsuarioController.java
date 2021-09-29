@@ -63,5 +63,20 @@ public class UsuarioController {
     }
     
   }
+  @PostMapping("/updateUsuarioObjeto")
+    public String updateUsuarioObjeto(@RequestBody Usuario usuario) {  
+    try{
+        int res = usuarioFacade.updateUsuarioObjeto(usuario.getIdUsuario(), usuario);
+        if(res==1){
+        return "Usuario actualizado";
+        }else{
+            return "Error al actualizar usuario";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al actualizar usuario";        
+    }
+    
+  }
 
 }

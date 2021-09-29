@@ -55,5 +55,18 @@ public class EstatusItemFacade {
             return 0;
         } 
     }
+    @Transactional
+    public Integer updatedEstatusIObjeto(Long idEstatus, Estatus_item estatusItem) {
+        String insert = "UPDATE estatus_item SET estado='"+estatusItem.getEstado()+"', created_at='"+estatusItem.getCreated_at()+"'"+
+        "WHERE id_estatus = "+idEstatus+";";
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en updated estatus item:" + e.getMessage());
+            return 0;
+        } 
+    }
     
 }

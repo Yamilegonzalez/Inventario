@@ -41,6 +41,21 @@ public class SolicitudUController {
     }
     
   }
+  @PostMapping("/updatedSolicitudUObjeto")
+    public String updatedSolicitudUObjeto(@RequestBody Solicitud_usuario solicitudUsuario) {  
+    try{
+        int res = solicitudUFacade.updatedSolicitudUObjeto(solicitudUsuario.getIdSolicitud(), solicitudUsuario);
+        if(res==1){
+        return "Solicitud usuario actualizada";
+        }else{
+            return "Error al actualizar solicitud usuario";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al actualizar solicitud usuario";        
+    }
+    
+  }
     
     
 }

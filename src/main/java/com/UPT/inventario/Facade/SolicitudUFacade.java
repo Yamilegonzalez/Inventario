@@ -56,5 +56,18 @@ public class SolicitudUFacade {
             return 0;
         } 
     }
-    
+    @Transactional
+    public Integer updatedSolicitudUObjeto(Long idSolicitud,Solicitud_usuario solicitudUsuario) {
+        String insert = "UPDATE solicitud_usuario SET id_estatus="+solicitudUsuario.getIdEstatus().getIdEstatus()+", folio_solicitud='"+solicitudUsuario.getFolioSolicitud()+"',id_usuario="+solicitudUsuario.getIdUsuario().getIdUsuario()+",id_item="+solicitudUsuario.getIdItem().getIdItem()+",fecha_inicio='"+solicitudUsuario.getFechaInicio()+"',fecha_final='"+solicitudUsuario.getFechaFinal()+"',motivo='"+solicitudUsuario.getMotivo()+"',created_at='"+solicitudUsuario.getCreated_at()+"' "+
+        "WHERE id_solicitud = "+idSolicitud+";";
+        System.out.println(insert);
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en actualizar solocitudU Objeto:" + e.getMessage());
+            return 0;
+        } 
+    }
 }

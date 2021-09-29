@@ -54,6 +54,21 @@ public class SancionAFacade {
             System.err.println("Error en insert sancion aplicada:" + e.getMessage());
             return 0;
         }
+    }
+    
+    @Transactional
+    public Integer updateSancionAplicadaObjeto(Long idSanUsuApli, Sancion_aplicada sancionApli) {
+        String insert = "UPDATE sancion_aplicada SET id_sancion_usuario="+sancionApli.getIdSancionUsuario().getIdSancionUsu()+", id_usuario="+sancionApli.getIdUsuario().getIdUsuario()+", id_item="+sancionApli.getIdItem().getIdItem()+",motivo_operador='"+sancionApli.getMotivoOperador()+"', fecha_ingresada='"+sancionApli.getFechaIngresada()+"', fecha_limite='"+sancionApli.getFechaLimite()+"', created_at='"+sancionApli.getCreated_at()+"'"+
+        " WHERE id_sancion_usuario_apli = "+idSanUsuApli+";";
+        System.out.println(insert);    
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en update sancion aplicada:" + e.getMessage());
+            return 0;
+        }
     } 
     
 }

@@ -53,5 +53,18 @@ public class RolFacade {
             return 0;
         } 
     }
+    @Transactional
+    public Integer updatedRolObjeto(Long idRol, Rol rol) {
+        String insert = "UPDATE rol SET nombre_rol='"+rol.getNombreRol()+"', created_at='"+rol.getCreated_at()+"'"+
+        "WHERE id_rol = "+idRol+";";
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en updated rol:" + e.getMessage());
+            return 0;
+        } 
+    }
     
 }

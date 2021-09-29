@@ -73,5 +73,18 @@ public class UsuarioFacade {
             return 0;
         } 
     }
+    @Transactional
+    public Integer updateUsuarioObjeto(Long idUsuario, Usuario usuario) {
+        String insert = "UPDATE usuario SET id_area="+usuario.getIdArea().getIdArea()+", id_rol="+usuario.getIdRol().getIdRol()+",primer_nombre='"+usuario.getPrimerNombre()+"',segundo_nombre='"+usuario.getSegundoNombre()+"',apellido_p='"+usuario.getApellidoP()+"',apellido_m='"+usuario.getApellidoM()+"',matricula='"+usuario.getMatricula()+"',num_telefono='"+usuario.getNumTelefono()+"',correo='"+usuario.getCorreo()+"',contrasenia='"+usuario.getContrasenia()+"',created_at='"+usuario.getCreated_at()+"'"+
+        "WHERE id_usuario = "+idUsuario+";";
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en updated Usuario:" + e.getMessage());
+            return 0;
+        } 
+    }
 
 }

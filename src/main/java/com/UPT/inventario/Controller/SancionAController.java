@@ -44,4 +44,20 @@ public class SancionAController {
 
   }
 
+  @PostMapping("/updateSancionAplicadaObjeto")
+    public String updateSancionAplicadaObjeto(@RequestBody Sancion_aplicada sancionAplicada) {  
+    try{
+        int res = sancionAFacade.updateSancionAplicadaObjeto(sancionAplicada.getIdSanUsuApli(), sancionAplicada);
+        if(res==1){
+        return "update sancionAplicada actualizada";
+        }else{
+            return "Error al actualizar Sancion Aplicada";
+        }       
+    }catch(Exception e){            
+        System.out.println("Error: " + e.getMessage());
+        return "Error al actualizar sancion aplicada";        
+    }
+
+  }
+
  }

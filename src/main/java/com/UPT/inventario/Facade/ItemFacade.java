@@ -54,5 +54,20 @@ public class ItemFacade {
             return 0;
         } 
     }
+
+    @Transactional
+    public Integer updateItemObjeto(Long idItem, Item item) {
+        String insert = "UPDATE item SET id_categoria="+item.getIdCategoria().getIdCategoria()+", no_serie='"+item.getNumSerie()+"',nombre_item='"+item.getNombreItem()+"',descripcion='"+item.getDescripcion()+"',created_at='"+item.getCreatedAt()+"' "+
+        "WHERE id_item = "+idItem+";";
+        System.out.println(insert);
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en update item:" + e.getMessage());
+            return 0;
+        } 
+    }
     
 }

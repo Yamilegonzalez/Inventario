@@ -42,5 +42,19 @@ public class RolController {
     }
     
   }
-    
+  @PostMapping("/updateRolObjeto")
+  public String updateRolObjeto(@RequestBody Rol rol) {  
+  try{
+      int res = rolFacade.updatedRolObjeto(rol.getIdRol(), rol);
+      if(res==1){
+      return "rol actualizado";
+      }else{
+          return "Error al actualizar rol";
+      }       
+  }catch(Exception e){            
+      System.out.println("Error: " + e.getMessage());
+      return "Error al actualizar rol";        
+  }
+  
+} 
 }
