@@ -41,12 +41,11 @@ public class SancionAFacade {
     public List<Sanciones_usuario> getAllSancionUsuarrio() {
         return null;
     }
-
     @Transactional
     public Integer insertSancionAplicadaObjeto(Sancion_aplicada sancionApli) {
-        String insert = "INSERT INTO sancion_aplicada(id_sancion_usuario, id_usuario, motivo_operador, fecha_ingresada, fecha_limite, created_at)"+ 
-        "VALUES ('"+sancionApli.getMotivoOperador()+"','"+sancionApli.getFechaIngresada()+"','"+sancionApli.getFechaLimite()+"','"+sancionApli.getCreated_at()+"');";
-            
+        String insert = "INSERT INTO sancion_aplicada(id_sancion_usuario, id_usuario, id_item, motivo_operador, fecha_ingresada, fecha_limite, created_at)"+ 
+        "VALUES ("+sancionApli.getIdSancionUsuario().getIdSancionUsu()+","+sancionApli.getIdUsuario().getIdUsuario()+","+sancionApli.getIdItem().getIdItem()+",'"+sancionApli.getMotivoOperador()+"','"+sancionApli.getFechaIngresada()+"','"+sancionApli.getFechaLimite()+"','"+sancionApli.getCreated_at()+"');";
+        System.out.println(insert);    
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();
@@ -54,8 +53,7 @@ public class SancionAFacade {
         } catch (Exception e) {
             System.err.println("Error en insert sancion aplicada:" + e.getMessage());
             return 0;
-        } 
-    }
-
+        }
+    } 
     
 }

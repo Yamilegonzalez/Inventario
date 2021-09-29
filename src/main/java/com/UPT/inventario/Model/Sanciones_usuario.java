@@ -31,13 +31,13 @@ public class Sanciones_usuario{
     private String motivoSistema;
     
     @Column(name = "fecha_ingresada")
-    private Date Finicial;
+    private Date fechaIngresada;
     
     @Column(name = "fecha_registro")
-    private Date Fretiro;
+    private Date fechaRegistro;
     
     @Column(name = "fecha_limite")
-    private Date FLimite;
+    private Date fechaLimite;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -46,7 +46,7 @@ public class Sanciones_usuario{
     private Date updatedAt;
 
     public Long getIdSancionUsu() {
-        return idSancionUsu;
+        return this.idSancionUsu;
     }
 
     public void setIdSancionUsu(Long idSancionUsu) {
@@ -54,7 +54,7 @@ public class Sanciones_usuario{
     }
 
     public Usuario getIdUsuario() {
-        return idUsuario;
+        return this.idUsuario;
     }
 
     public void setIdUsuario(Usuario idUsuario) {
@@ -62,7 +62,7 @@ public class Sanciones_usuario{
     }
 
     public Item getIdItem() {
-        return idItem;
+        return this.idItem;
     }
 
     public void setIdItem(Item idItem) {
@@ -70,39 +70,39 @@ public class Sanciones_usuario{
     }
 
     public String getMotivoSistema() {
-        return motivoSistema;
+        return this.motivoSistema;
     }
 
     public void setMotivoSistema(String motivoSistema) {
         this.motivoSistema = motivoSistema;
     }
 
-    public Date getFinicial() {
-        return Finicial;
+    public Date getFechaIngresada() {
+        return this.fechaIngresada;
     }
 
-    public void setFinicial(Date finicial) {
-        Finicial = finicial;
+    public void setFechaIngresada(Date fechaIngresada) {
+        this.fechaIngresada = fechaIngresada;
     }
 
-    public Date getFretiro() {
-        return Fretiro;
+    public Date getFechaRegistro() {
+        return this.fechaRegistro;
     }
 
-    public void setFretiro(Date fretiro) {
-        Fretiro = fretiro;
+    public void setFechaRegistro(Date fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
     }
 
-    public Date getFLimite() {
-        return FLimite;
+    public Date getFechaLimite() {
+        return this.fechaLimite;
     }
 
-    public void setFLimite(Date fLimite) {
-        FLimite = fLimite;
+    public void setFechaLimite(Date fechaLimite) {
+        this.fechaLimite = fechaLimite;
     }
 
     public Date getCreatedAt() {
-        return createdAt;
+        return this.createdAt;
     }
 
     public void setCreatedAt(Date createdAt) {
@@ -110,13 +110,12 @@ public class Sanciones_usuario{
     }
 
     public Date getUpdatedAt() {
-        return updatedAt;
+        return this.updatedAt;
     }
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-
-   
+       
 }

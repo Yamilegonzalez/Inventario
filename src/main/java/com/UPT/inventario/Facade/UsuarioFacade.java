@@ -63,7 +63,7 @@ public class UsuarioFacade {
     @Transactional
     public Integer insertUsuarioObjeto(Usuario usuario) {
         String insert = "INSERT INTO usuario(id_area, id_rol, primer_nombre, segundo_nombre, apellido_p, apellido_m, matricula, num_telefono, correo, contrasenia, created_at)"+ 
-        "VALUES ('"+usuario.getIdArea()+"','"+usuario.getIdRol()+"','"+usuario.getPrimerNombre()+"','"+usuario.getSegundoNombre()+"','"+usuario.getApellidoP()+"','"+usuario.getApellidoM()+"','"+usuario.getMatricula()+"','"+usuario.getNumTelefono()+"','"+usuario.getCorreo()+"','"+usuario.getContrasenia()+"','"+usuario.getCreated_at()+"');";
+        "VALUES ("+usuario.getIdArea().getIdArea()+","+usuario.getIdRol().getIdRol()+",'"+usuario.getPrimerNombre()+"','"+usuario.getSegundoNombre()+"','"+usuario.getApellidoP()+"','"+usuario.getApellidoM()+"','"+usuario.getMatricula()+"','"+usuario.getNumTelefono()+"','"+usuario.getCorreo()+"','"+usuario.getContrasenia()+"','"+usuario.getCreated_at()+"');";
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();

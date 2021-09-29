@@ -38,7 +38,9 @@ public class SancionesUFacade {
     
     @Transactional
     public Integer insertSancionesUObjeto(Sanciones_usuario sancionesUsuario) {
-        String insert = "QUERY";
+        String insert = "INSERT INTO sanciones_usuario(id_usuario, id_item, motivo_sistema, fecha_ingresada, fecha_registro, fecha_limite, created_at)"+
+        "VALUES("+sancionesUsuario.getIdUsuario().getIdUsuario()+","+sancionesUsuario.getIdItem().getIdItem()+",'"+sancionesUsuario.getMotivoSistema()+"','"+sancionesUsuario.getFechaIngresada()+"','"+sancionesUsuario.getFechaRegistro()+"','"+sancionesUsuario.getFechaLimite()+"','"+sancionesUsuario.getCreatedAt()+"');";
+        System.out.println(insert);
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();

@@ -20,11 +20,11 @@ public class AreaFacade {
 
     public List<Area> getAllAreas() {
         List<Area> result = new ArrayList<Area>();
-            String select = "SELECT * FROM area";
+        String select = "SELECT * FROM area";
 
-             Query query = em.createNativeQuery(select, Area.class);
+        Query query = em.createNativeQuery(select, Area.class);
         try {
-            result =  castList(Area.class, query.getResultList());
+            result = castList(Area.class, query.getResultList());
 
         } catch (Exception e) {
             System.err.println("Error al obtener getAllArea:" + e.getMessage());
@@ -35,14 +35,14 @@ public class AreaFacade {
 
     public static <T> List<T> castList(Class<? extends T> clazz, Collection<?> c) {
         List<T> r = new ArrayList<T>(c.size());
-        for(Object o: c)
-          r.add(clazz.cast(o));
+        for (Object o : c)
+            r.add(clazz.cast(o));
         return r;
     }
 
     @Transactional
     public Integer insertArea(String nombreArea, String createdAt) {
-        String insert = "INSERT INTO area(nombre_area, created_at) VALUES ('"+nombreArea+"','"+createdAt+"');";
+        String insert = "INSERT INTO area(nombre_area, created_at) VALUES ('" + nombreArea + "','" + createdAt + "');";
 
         Query query = em.createNativeQuery(insert);
         try {
@@ -51,13 +51,14 @@ public class AreaFacade {
         } catch (Exception e) {
             System.err.println("Error en insertproductos:" + e.getMessage());
             return 0;
-        } 
+        }
     }
 
     @Transactional
     public Integer insertAreaObjeto(Area area) {
-        String insert = "INSERT INTO area(nombre_area, created_at) VALUES ('"+area.getNombreArea()+"','"+area.getCreatedAt()+"');";
-
+        String insert = "INSERT INTO area(nombre_area, created_at)"+ 
+        "VALUES ('"+area.getNombreArea()+"','"+area.getCreatedAt()+"');";
+        System.out.println(insert);
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();
@@ -65,6 +66,6 @@ public class AreaFacade {
         } catch (Exception e) {
             System.err.println("Error en insertproductos:" + e.getMessage());
             return 0;
-        } 
+        }
     }
 }

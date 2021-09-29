@@ -44,7 +44,8 @@ public class EstatusItemFacade {
 
     @Transactional
     public Integer insertEstatusIObjeto(Estatus_item estatusItem) {
-        String insert = "";
+        String insert = "INSERT INTO estatus_item(estado, created_at)"+ 
+        "VALUES ('"+estatusItem.getEstado()+"','"+estatusItem.getCreated_at()+"');";
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();

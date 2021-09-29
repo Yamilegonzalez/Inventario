@@ -42,8 +42,9 @@ public class CategoriaItFacade {
 
     @Transactional
     public Integer insertCategoriaIObjeto(Categoria_item categoriaItem) {
-        String insert = "QUERY";
-
+        String insert = "INSERT INTO categoria_item(nombre_categoria,descripcion, created_at)"+ 
+        "VALUES ('"+ categoriaItem.getNombreCategoria()+"','"+categoriaItem.getDescripcion()+"','"+categoriaItem.getCreatedAt()+"');";
+       
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();

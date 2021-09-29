@@ -38,8 +38,9 @@ public class SolicitudAFacade {
     }
     @Transactional
     public Integer insertSolicitudAObjeto(Solicitud_aceptada solicitudAceptada) {
-        String insert = "QUERY";
-
+        String insert = "INSERT INTO solicitud_aceptada(id_solicitud, id_item, id_usuario, descripcion, fecha_ingresada, fecha_retiro, created_at)"+
+        " VALUES("+solicitudAceptada.getIdSolicitud().getIdSolicitud()+","+solicitudAceptada.getIdItem().getIdItem()+","+solicitudAceptada.getIdUsuario().getIdUsuario()+",'"+solicitudAceptada.getDescripcion()+"','"+solicitudAceptada.getFechaIngresada()+"','"+solicitudAceptada.getFechaRetiro()+"','"+solicitudAceptada.getCreatedAt()+"');";
+        System.out.println(insert);
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();

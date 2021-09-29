@@ -39,10 +39,10 @@ public class Solicitud_aceptada {
     private String descripcion;
     
     @Column(name = "fecha_ingresada")
-    private Date Finicial;
+    private Date fechaIngresada;
 
     @Column(name = "fecha_retiro")
-    private Date Fretiro;
+    private Date fechaRetiro;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -91,22 +91,23 @@ public class Solicitud_aceptada {
         this.descripcion = descripcion;
     }
 
-    public Date getFinicial() {
-        return Finicial;
+
+    public Date getFechaIngresada() {
+        return this.fechaIngresada;
     }
 
-    public void setFinicial(Date finicial) {
-        Finicial = finicial;
+    public void setFechaIngresada(Date fechaIngresada) {
+        this.fechaIngresada = fechaIngresada;
     }
 
-    public Date getFretiro() {
-        return Fretiro;
+    public Date getFechaRetiro() {
+        return this.fechaRetiro;
     }
 
-    public void setFretiro(Date fretiro) {
-        Fretiro = fretiro;
+    public void setFechaRetiro(Date fechaRetiro) {
+        this.fechaRetiro = fechaRetiro;
     }
-
+    
     public Date getCreatedAt() {
         return createdAt;
     }

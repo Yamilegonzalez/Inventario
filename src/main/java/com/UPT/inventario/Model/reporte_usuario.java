@@ -29,7 +29,7 @@ public class Reporte_usuario {
 
     @JoinColumn(name = "id_solicitud", referencedColumnName = "id_solicitud")
     @ManyToOne(optional = false)
-    private Solicitud_usuario Solicitud;
+    private Solicitud_usuario idSolicitud;
 
     @Column(name = "motivo", nullable = false)
     private String motivo;
@@ -72,12 +72,12 @@ public class Reporte_usuario {
         this.idItem = idItem;
     }
 
-    public Solicitud_usuario getSolicitud() {
-        return this.Solicitud;
+    public Solicitud_usuario getidSolicitud() {
+        return this.idSolicitud;
     }
 
-    public void setSolicitud(Solicitud_usuario Solicitud) {
-        this.Solicitud = Solicitud;
+    public void setidSolicitud(Solicitud_usuario idSolicitud) {
+        this.idSolicitud = idSolicitud;
     }
 
     public String getMotivo() {

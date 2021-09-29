@@ -43,8 +43,9 @@ public class ReporteUFacade {
     }
     @Transactional
     public Integer insertReporteUObjeto(Reporte_usuario reporteUsuario) {
-        String insert = "QUERY";
-
+        String insert = "INSERT INTO reporte_usuario(id_usuario, id_item, id_solicitud, motivo, descripcion, url_img, created_at)"+ 
+        "VALUES ("+reporteUsuario.getIdUsuario().getIdUsuario()+","+reporteUsuario.getIdItem().getIdItem()+","+reporteUsuario.getidSolicitud().getIdSolicitud()+",'"+reporteUsuario.getMotivo()+"','"+reporteUsuario.getDescripcion()+"','"+reporteUsuario.getUrl_img()+"','"+reporteUsuario.getCreated_at()+"');";
+        System.out.println(insert);
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();
