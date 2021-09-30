@@ -75,7 +75,13 @@ public class SancionAController {
     }
 
   }
+    @PostMapping("/selectByIdSancionAplicadaObjeto")
+    public List<Sancion_aplicada> selectByIdSancionAplicadaObjeto(@RequestParam("idSanUsuApli") Long idSanUsuApli) {  
+    List<Sancion_aplicada> sancionApli = new ArrayList<Sancion_aplicada>();
+        sancionApli = sancionAFacade.selectByIdSancionAplicada(idSanUsuApli);
+        return sancionApli;
 
-  
+    }
+
 
  }

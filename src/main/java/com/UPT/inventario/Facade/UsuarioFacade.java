@@ -18,7 +18,6 @@ public class UsuarioFacade {
 
     @PersistenceContext
     EntityManager em;
-    
     public List<Usuario> getAllUsuario() {
         List<Usuario> result = new ArrayList<Usuario>();
             String select = "SELECT * FROM usuario";
@@ -98,6 +97,21 @@ public class UsuarioFacade {
             System.err.println("Error en delete usuario:" + e.getMessage());
             return 0;
         }
+    }
+
+    @PersistenceContext
+    EntityManager ems;
+    public List<Usuario> selectByIdUsuarioObjeto(Long idUsuario){
+        List<Usuario> result = new ArrayList<Usuario>();
+        String select = "SELECT * FROM usuario WHERE id_usuario = "+idUsuario+";";
+        System.out.println(select);
+        Query query = ems.createNativeQuery(select, Usuario.class);
+        try{
+            result =  castList(Usuario.class, query.getResultList());
+        }catch (Exception e) {
+            System.err.println("Error al obtener get usuario by id:" + e.getMessage());
+        }
+        return result;
     }
 
 }

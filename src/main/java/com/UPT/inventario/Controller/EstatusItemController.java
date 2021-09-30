@@ -72,5 +72,13 @@ public class EstatusItemController {
     }
 
   }
+
+  @PostMapping("/selectByIdEstatusIObjeto")
+    public List<Estatus_item> selectByIdEstatusIObjeto(@RequestParam("idEstatus") Long idEstatus){  
+    List<Estatus_item> Estatus_item = new ArrayList<Estatus_item>();
+        Estatus_item = estatusItemFacade.selectByIdEstatusIObjeto(idEstatus);
+        return Estatus_item;
+
+    }
     
 }

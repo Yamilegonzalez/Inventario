@@ -18,7 +18,6 @@ public class RolFacade {
 
     @PersistenceContext
     EntityManager em;
-
     public List<Rol> getAllRol() {
         List<Rol> result = new ArrayList<Rol>();
             String select = "SELECT * FROM rol";
@@ -78,6 +77,25 @@ public class RolFacade {
             System.err.println("Error en delete rol:" + e.getMessage());
             return 0;
         }
+    }
+    @PersistenceContext
+    EntityManager ems;
+    public List<Rol> selectByIdRol(Long idRol) {
+        List<Rol> result = new ArrayList<Rol>();
+        String select = "SELECT id_rol, nombre_rol, created_at, updated_at "+
+        "FROM rol WHERE id_rol = "+idRol+";";
+        
+        Query query = ems.createNativeQuery(select, Rol.class);
+        System.out.println(select);
+
+        try {
+            result =  castList(Rol.class, query.getResultList());
+
+        } catch (Exception e) {
+            System.err.println("Error al obtener get rol by id:" + e.getMessage());
+        }
+
+        return result;
     }
     
 }

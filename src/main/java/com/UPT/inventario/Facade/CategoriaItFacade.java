@@ -17,7 +17,7 @@ import com.UPT.inventario.Model.Categoria_item;
 public class CategoriaItFacade {
 
     @PersistenceContext
-    static EntityManager em;
+    EntityManager em;
 
     public List<Categoria_item> getAllCategoriaItem() {
         List<Categoria_item> result = new ArrayList<Categoria_item>();
@@ -42,7 +42,7 @@ public class CategoriaItFacade {
     }
 
     @Transactional
-    public static Integer insertCategoriaIObjeto(Categoria_item categoriaItem) {
+    public Integer insertCategoriaIObjeto(Categoria_item categoriaItem) {
         String insert = "INSERT INTO categoria_item(nombre_categoria,descripcion, created_at)" + "VALUES ('"
                 + categoriaItem.getNombreCategoria() + "','" + categoriaItem.getDescripcion() + "','"
                 + categoriaItem.getCreatedAt() + "');";
@@ -58,7 +58,7 @@ public class CategoriaItFacade {
     }
 
     @Transactional
-    public static Integer updateCategoriaIObjeto(String string, Categoria_item categoria_item) {
+    public Integer updateCategoriaIObjeto(String string, Categoria_item categoria_item) {
         String insert = "UPDATE categoria_item SET id_categoria_item=" + categoria_item.getIdCategoria()
                 + ",nombre_categoria='" + categoria_item.getNombreCategoria() + "',descripcion='"
                 + categoria_item.getDescripcion() + categoria_item.getCreatedAt() + "'" + "WHERE id_categoria = "
@@ -74,7 +74,7 @@ public class CategoriaItFacade {
     }
 
     @Transactional
-    public static Integer deleteCategoriaIObjeto(Long categoria_item) {
+    public Integer deleteCategoriaIObjeto(Long categoria_item) {
         String insert = "DELETE FROM categoria_item WHERE id_categoria=" + categoria_item;
         System.out.println(insert);
         Query query = em.createNativeQuery(insert);

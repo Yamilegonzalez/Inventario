@@ -81,5 +81,21 @@ public class EstatusItemFacade {
             return 0;
         }
     }
+
+    @PersistenceContext
+    EntityManager ems;
+    public List<Estatus_item> selectByIdEstatusIObjeto(Long idEstatus){
+        List<Estatus_item> result = new ArrayList<Estatus_item>();
+        String select = "SELECT id_estatus, estado, created_at, updated_at "+
+        "FROM estatus_item WHERE id_estatus = "+idEstatus+";";
+        System.out.println(select);
+        Query query = ems.createNativeQuery(select, Estatus_item.class);
+        try{
+            result =  castList(Estatus_item.class, query.getResultList());
+        }catch (Exception e) {
+            System.err.println("Error al obtener get estatus item by id:" + e.getMessage());
+        }
+        return result;
+    }
     
 }

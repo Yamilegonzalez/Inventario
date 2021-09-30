@@ -13,11 +13,10 @@ import java.util.List;
 
 @Component
 public class SancionesUFacade {
+    
     @PersistenceContext
-    static
     EntityManager em;
-
-    public static List<Sanciones_usuario> getAllSancionesUsuario() {
+    public List<Sanciones_usuario> getAllSancionesUsuario() {
 
         List<Sanciones_usuario> result = new ArrayList<Sanciones_usuario>();
         String select = "SELECT * FROM sanciones_usuario";
@@ -75,7 +74,7 @@ public class SancionesUFacade {
     }
 
     @Transactional
-    public static Integer deleteSancionesUObjeto(long idSancionesU) {
+    public Integer deleteSancionesUObjeto(long idSancionesU) {
         String insert = "DELETE FROM usuario WHERE id_sancion_usuario" + idSancionesU;
         System.out.println(insert);
         var query = em.createNativeQuery(insert);

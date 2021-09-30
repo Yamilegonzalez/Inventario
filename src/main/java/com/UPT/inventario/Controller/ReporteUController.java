@@ -71,6 +71,14 @@ public class ReporteUController {
         return "Error al borrar reporte usuario";        
     }
 
-  }  
+  }
+  
+  @PostMapping("/selectByIdReporteUObjeto")
+    public List<Reporte_usuario> selectByIdReporteUObjeto(@RequestParam("idReporteUsuario") Long idReporteUsuario) {  
+    List<Reporte_usuario> Reporte_usuario = new ArrayList<Reporte_usuario>();
+        Reporte_usuario = reporteUFacade.selectByIdReporteUObjeto(idReporteUsuario);
+        return Reporte_usuario;
+
+    }
     
 }

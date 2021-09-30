@@ -83,4 +83,20 @@ public class SolicitudUFacade {
             return 0;
         }
     }
+
+    @PersistenceContext
+    EntityManager ems;
+    public List<Solicitud_usuario> selectByIdSolicitudUObjeto(Long idSolicitud){
+        List<Solicitud_usuario> result = new ArrayList<Solicitud_usuario>();
+        String select = "SELECT id_solicitud, id_estatus, folio_solicitud, id_usuario, id_item, fecha_inicio, fecha_final, motivo, created_at, updated_at "+
+        "FROM solicitud_usuario WHERE id_solicitud = "+idSolicitud+";";
+        System.out.println(select);
+        Query query = ems.createNativeQuery(select, Solicitud_usuario.class);
+        try{
+            result =  castList(Solicitud_usuario.class, query.getResultList());
+        }catch (Exception e) {
+            System.err.println("Error al obtener get solicitud usuario by id:" + e.getMessage());
+        }
+        return result;
+    }
 }

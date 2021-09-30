@@ -82,4 +82,18 @@ public class ReporteUFacade {
             return 0;
         }
     }
+    @PersistenceContext
+    EntityManager ems;
+    public List<Reporte_usuario> selectByIdReporteUObjeto(Long idReporteUsuario){
+        List<Reporte_usuario> result = new ArrayList<Reporte_usuario>();
+        String select = "SELECT * FROM reporte_usuario WHERE id_reporte_usuario = "+idReporteUsuario+";";
+        System.out.println(select);
+        Query query = ems.createNativeQuery(select, Reporte_usuario.class);
+        try{
+            result =  castList(Reporte_usuario.class, query.getResultList());
+        }catch (Exception e) {
+            System.err.println("Error al obtener get reporte_usuario by id:" + e.getMessage());
+        }
+        return result;
+    }
 }

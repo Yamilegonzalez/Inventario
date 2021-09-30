@@ -94,5 +94,11 @@ public class UsuarioController {
         }
 
     }
+    @PostMapping("/selectByIdUsuarioObjeto")
+    public List<Usuario> selectByIdUsuarioObjeto(@RequestParam("idUsuario") Long idUsuario) {
+        List<Usuario> user = new ArrayList<Usuario>();
+        user = usuarioFacade.selectByIdUsuarioObjeto(idUsuario);
+        return user;
+    }
 
 }

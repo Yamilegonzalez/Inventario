@@ -72,6 +72,14 @@ public class SolicitudUController {
     }
 
   }
+
+  @PostMapping("/selectByIdSolicitudUObjeto")
+    public List<Solicitud_usuario> selectByIdSolicitudUObjeto(@RequestParam("idSolicitud") Long idSolicitud) {  
+    List<Solicitud_usuario> Solicitud_usuario = new ArrayList<Solicitud_usuario>();
+        Solicitud_usuario = solicitudUFacade.selectByIdSolicitudUObjeto(idSolicitud);
+        return Solicitud_usuario;
+
+    }
     
     
 }

@@ -72,5 +72,12 @@ public class RolController {
         return "Error al borrar rol";        
     }
 
-  } 
+  }
+  @PostMapping("/selectByIdRolObjeto")
+  public List<Rol> selectByIdRolObjeto(@RequestParam("idRol") Long idRol) {  
+  List<Rol> listRol = new ArrayList<Rol>();
+      listRol = rolFacade.selectByIdRol(idRol);
+      return listRol;
+
+  }
 }

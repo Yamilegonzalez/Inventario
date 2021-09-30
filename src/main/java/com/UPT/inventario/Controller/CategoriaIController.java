@@ -20,12 +20,12 @@ import java.util.ArrayList;
 public class CategoriaIController {
     
         @Autowired
-        private CategoriaItFacade CategoriaItFacades;
+        private CategoriaItFacade CategoriaItFacade;
     
         @GetMapping("/getAllCategotiaIt")
         public List<Categoria_item> getAllCategoriaIt() {
             List<Categoria_item> CategoriaItem = new ArrayList<Categoria_item>();
-            CategoriaItem = CategoriaItFacades.getAllCategoriaItem();
+            CategoriaItem = CategoriaItFacade.getAllCategoriaItem();
             return CategoriaItem;
         }
 

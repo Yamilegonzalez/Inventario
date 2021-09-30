@@ -21,17 +21,10 @@ public class SancionesUController {
     @Autowired
     private SancionesUFacade sancionUFacade;
 
-    @GetMapping("/getAllUsers")
-    public List<Sanciones_usuario> getAllUsers() {
-        List<Sanciones_usuario> user = new ArrayList<Sanciones_usuario>();
-        user = SancionesUFacade.getAllSancionesUsuario();
-        return user;
-    }
-
     @GetMapping("/getAllSancionUsuario")
     public List<Sanciones_usuario> getAllSancionUsuario() {
         List<Sanciones_usuario> sancionUsu = new ArrayList<Sanciones_usuario>();
-        sancionUsu = SancionesUFacade.getAllSancionesUsuario();
+        sancionUsu = sancionUFacade.getAllSancionesUsuario();
         return sancionUsu;
     }
 
@@ -70,7 +63,7 @@ public class SancionesUController {
     @PostMapping("/deleteSancionesuObjeto")
     public String deleteSancionesUObjeto(@RequestParam("sancionesUsuario") Long sancionesUsuario) {
         try {
-            int res = SancionesUFacade.deleteSancionesUObjeto(sancionesUsuario);
+            int res = sancionUFacade.deleteSancionesUObjeto(sancionesUsuario);
             if (res == 1) {
                 return "Sancion eliminada";
             } else {
