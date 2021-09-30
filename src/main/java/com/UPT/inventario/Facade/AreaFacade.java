@@ -69,4 +69,30 @@ public class AreaFacade {
             return 0;
         }
     }
+    @Transactional
+    public Integer updateAreaObjeto(Long idArea, Area area) {
+        String insert = "UPDATE usuario SET id_area="+area.getIdArea()+", nombres_area="+ area .getNombreArea()+"created_at="+area.getCreatedAt()+"'"+
+        "WHERE id_area = "+idArea+";";
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en updated Area:" + e.getMessage());
+            return 0;
+        } 
+    }
+    @Transactional
+    public Integer deleteAreaObjeto(Long idArea) {
+        String insert = "DELETE FROM area WHERE id_area="+idArea;
+        System.out.println(insert);    
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en delete area:" + e.getMessage());
+            return 0;
+        }
+    }
 }

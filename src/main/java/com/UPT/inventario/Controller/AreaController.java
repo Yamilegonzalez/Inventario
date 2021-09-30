@@ -58,5 +58,37 @@ public class AreaController {
         }
 
     }
+    @PostMapping("/updateAreaObjeto")
+    public String updateUsuarioObjeto(@RequestBody Area area) {
+        try {
+            int res = AreaFacade.updateAreaObjeto(area.getIdArea(), area);
+            if (res == 1) {
+                return "Area actualizada";
+            } else {
+                return "Error al actualizar Area";
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return "Error al actualizar area";
+        }
+
+    }
+
+    @PostMapping("/deleteAreaObjeto")
+    public String deleteAreaObjeto(@RequestParam("idArea") Long idArea) {
+        try {
+            int res = AreaFacade.deleteAreaObjeto(idArea);
+            if (res == 1) {
+                return "Area eliminada";
+            } else {
+                return "Error al borrar area";
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return "Error al borrar area";
+        }
+
+    }
+    
 
 }

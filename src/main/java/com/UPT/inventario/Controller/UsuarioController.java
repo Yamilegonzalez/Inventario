@@ -33,15 +33,14 @@ public class UsuarioController {
         return user;
     }
 
-
- @PostMapping("/getUsersByName")
+    @PostMapping("/getUsersByName")
     public List<Usuario> getUsersByName(@RequestParam("name") String name) {
         List<Usuario> user = new ArrayList<Usuario>();
         user = usuarioFacade.getUsuariosByName(name);
         return user;
     }
 
- @GetMapping("/getUsersByName2/{name}")
+    @GetMapping("/getUsersByName2/{name}")
     public List<Usuario> getUsersByName2(@PathVariable String name) {
         List<Usuario> user = new ArrayList<Usuario>();
         user = usuarioFacade.getUsuariosByName(name);
@@ -49,49 +48,51 @@ public class UsuarioController {
     }
 
     @PostMapping("/insertUsuarioObjeto")
-    public String insertUsuarioObjeto(@RequestBody Usuario usuario) {  
-    try{
-        int res = usuarioFacade.insertUsuarioObjeto(usuario);
-        if(res==1){
-        return "Usuario insertado";
-        }else{
+    public String insertUsuarioObjeto(@RequestBody Usuario usuario) {
+        try {
+            int res = usuarioFacade.insertUsuarioObjeto(usuario);
+            if (res == 1) {
+                return "Usuario insertado";
+            } else {
+                return "Error al insertar usuario";
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
             return "Error al insertar usuario";
-        }       
-    }catch(Exception e){            
-        System.out.println("Error: " + e.getMessage());
-        return "Error al insertar usuario";        
-    }
-    
-  }
-  @PostMapping("/updateUsuarioObjeto")
-    public String updateUsuarioObjeto(@RequestBody Usuario usuario) {  
-    try{
-        int res = usuarioFacade.updateUsuarioObjeto(usuario.getIdUsuario(), usuario);
-        if(res==1){
-        return "Usuario actualizado";
-        }else{
-            return "Error al actualizar usuario";
-        }       
-    }catch(Exception e){            
-        System.out.println("Error: " + e.getMessage());
-        return "Error al actualizar usuario";        
-    }
-    
-  }
-  @PostMapping("/deleteUsuarioObjeto")
-    public String deleteUsuarioObjeto(@RequestParam("idUsuario") Long idUsuario) {  
-    try{
-        int res = usuarioFacade.deleteUsuarioObjeto(idUsuario);
-        if(res==1){
-        return "usuario eliminado";
-        }else{
-            return "Error al borrar usuario";
-        }       
-    }catch(Exception e){            
-        System.out.println("Error: " + e.getMessage());
-        return "Error al borrar usuario";        
+        }
+
     }
 
-  }
+    @PostMapping("/updateUsuarioObjeto")
+    public String updateUsuarioObjeto(@RequestBody Usuario usuario) {
+        try {
+            int res = usuarioFacade.updateUsuarioObjeto(usuario.getIdUsuario(), usuario);
+            if (res == 1) {
+                return "Usuario actualizado";
+            } else {
+                return "Error al actualizar usuario";
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return "Error al actualizar usuario";
+        }
+
+    }
+
+    @PostMapping("/deleteUsuarioObjeto")
+    public String deleteUsuarioObjeto(@RequestParam("idUsuario") Long idUsuario) {
+        try {
+            int res = usuarioFacade.deleteUsuarioObjeto(idUsuario);
+            if (res == 1) {
+                return "usuario eliminado";
+            } else {
+                return "Error al borrar usuario";
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return "Error al borrar usuario";
+        }
+
+    }
 
 }

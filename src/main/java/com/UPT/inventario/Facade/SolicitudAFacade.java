@@ -6,6 +6,8 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import com.UPT.inventario.Model.Solicitud_aceptada;
+import com.UPT.inventario.Model.Usuario;
+
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -65,6 +67,33 @@ public class SolicitudAFacade {
             return 1;
         } catch (Exception e) {
             System.err.println("Error en insertproductos:" + e.getMessage());
+            return 0;
+        }
+    }
+
+    @Transactional
+    public Integer updateSolicitudAObjeto(Usuario usuario, Solicitud_aceptada sAceptada) {
+        String insert = "UPDATE usuario SET id_area="+sAceptada.getIdSolicitud().getIdSolicitud()+", id_item="+sAceptada.getIdItem().getIdItem()+",id_usuario='"+sAceptada.getIdUsuario().getIdUsuario()+"',descripcion='"+sAceptada.getDescripcion()+"',fecha_ingresada='"+sAceptada.getFechaIngresada()+"',fecha_retiro='"+sAceptada.getFechaRetiro()+"',created_at='"+sAceptada.getCreatedAt()+"'"+
+        "WHERE id_solicitud_aceptada = "+usuario+";";
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en updated Solicitud:" + e.getMessage());
+            return 0;
+        } 
+    }
+    @Transactional
+    public Integer deleteSolicitudAObjeto(Long idSolicitud) {
+        String insert = "DELETE FROM SolicitudA WHERE id_solicitud_aceptada="+idSolicitud;
+        System.out.println(insert);    
+        Query query = em.createNativeQuery(insert);
+        try {
+            query.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en delete solicitud :" + e.getMessage());
             return 0;
         }
     }

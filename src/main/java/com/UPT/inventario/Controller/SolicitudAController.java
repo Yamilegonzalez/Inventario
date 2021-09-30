@@ -58,4 +58,35 @@ public class SolicitudAController {
     }
     
   }
+  @PostMapping("/updateSolicitudAObjeto")
+    public String updateSolicitudObjeto(@RequestBody Solicitud_aceptada sAceptada) {
+        try {
+            int res = SolicitudAFacade.updateSolicitudAObjeto(sAceptada.getIdUsuario(), sAceptada);
+            if (res == 1) {
+                return "Solicitud aceptada actualizado";
+            } else {
+                return "Error al actualizar solicitud";
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return "Error al actualizar solicitud";
+        }
+
+    }
+
+    @PostMapping("/deleteSolicitudAObjeto")
+    public String deleteSolicitudAObjeto(@RequestParam("idSolicitudA") Long idSolicitudA) {
+        try {
+            int res = SolicitudAFacade.deleteSolicitudAObjeto(idSolicitudA);
+            if (res == 1) {
+                return "Solicitud eliminada";
+            } else {
+                return "Error al eliminar solicitud";
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return "Error al eliminar solicitud";
+        }
+
+    }
 }
