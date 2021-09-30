@@ -82,8 +82,7 @@ public class RolFacade {
     EntityManager ems;
     public List<Rol> selectByIdRol(Long idRol) {
         List<Rol> result = new ArrayList<Rol>();
-        String select = "SELECT id_rol, nombre_rol, created_at, updated_at "+
-        "FROM rol WHERE id_rol = "+idRol+";";
+        String select = "SELECT * FROM rol WHERE id_rol = "+idRol+";";
         
         Query query = ems.createNativeQuery(select, Rol.class);
         System.out.println(select);

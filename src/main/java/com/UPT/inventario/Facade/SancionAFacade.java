@@ -87,8 +87,7 @@ public class SancionAFacade {
     EntityManager ems;
     public List<Sancion_aplicada> selectByIdSancionAplicada(Long idSanUsuApli){
         List<Sancion_aplicada> result = new ArrayList<Sancion_aplicada>();
-        String select = "SELECT id_sancion_usuario_apli, id_sancion_usuario, id_usuario, id_item, motivo_operador, fecha_ingresada, fecha_limite, created_at, updated_at "+
-        "FROM sancion_aplicada WHERE id_sancion_usuario_apli = "+idSanUsuApli+";";
+        String select = "SELECT * FROM sancion_aplicada WHERE id_sancion_usuario_apli = "+idSanUsuApli+";";
         System.out.println(select);
         Query query = ems.createNativeQuery(select, Sancion_aplicada.class);
         try{

@@ -88,8 +88,7 @@ public class SolicitudUFacade {
     EntityManager ems;
     public List<Solicitud_usuario> selectByIdSolicitudUObjeto(Long idSolicitud){
         List<Solicitud_usuario> result = new ArrayList<Solicitud_usuario>();
-        String select = "SELECT id_solicitud, id_estatus, folio_solicitud, id_usuario, id_item, fecha_inicio, fecha_final, motivo, created_at, updated_at "+
-        "FROM solicitud_usuario WHERE id_solicitud = "+idSolicitud+";";
+        String select = "SELECT * FROM solicitud_usuario WHERE id_solicitud = "+idSolicitud+";";
         System.out.println(select);
         Query query = ems.createNativeQuery(select, Solicitud_usuario.class);
         try{

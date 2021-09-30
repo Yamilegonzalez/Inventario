@@ -86,8 +86,7 @@ public class EstatusItemFacade {
     EntityManager ems;
     public List<Estatus_item> selectByIdEstatusIObjeto(Long idEstatus){
         List<Estatus_item> result = new ArrayList<Estatus_item>();
-        String select = "SELECT id_estatus, estado, created_at, updated_at "+
-        "FROM estatus_item WHERE id_estatus = "+idEstatus+";";
+        String select = "SELECT * FROM estatus_item WHERE id_estatus = "+idEstatus+";";
         System.out.println(select);
         Query query = ems.createNativeQuery(select, Estatus_item.class);
         try{
