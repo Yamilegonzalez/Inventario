@@ -69,5 +69,19 @@ public class ItemFacade {
             return 0;
         } 
     }
+
+    @Transactional
+    public Integer deleteItemObjeto(long idItem) {
+        String insert = "DELETE FROM item WHERE id_item=" + idItem;
+        System.out.println(insert);
+        var query = em.createNativeQuery(insert);
+        try {
+            ((Query) query).executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            System.err.println("Error en delete item usuario" + e.getMessage());
+            return 0;
+        }
+    }
     
 }

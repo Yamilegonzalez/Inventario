@@ -71,8 +71,9 @@ public class AreaFacade {
     }
     @Transactional
     public Integer updateAreaObjeto(Long idArea, Area area) {
-        String insert = "UPDATE usuario SET id_area="+area.getIdArea()+", nombres_area="+ area .getNombreArea()+"created_at="+area.getCreatedAt()+"'"+
-        "WHERE id_area = "+idArea+";";
+        String insert = "UPDATE area SET nombre_area='"+ area .getNombreArea()+"', created_at='"+area.getCreatedAt()+"'"+
+        " WHERE id_area = "+idArea+";";
+        System.out.println(insert);
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();

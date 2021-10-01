@@ -46,7 +46,7 @@ public class CategoriaItFacade {
         String insert = "INSERT INTO categoria_item(nombre_categoria,descripcion, created_at)" + "VALUES ('"
                 + categoriaItem.getNombreCategoria() + "','" + categoriaItem.getDescripcion() + "','"
                 + categoriaItem.getCreatedAt() + "');";
-
+        System.out.println(insert);
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();
@@ -58,11 +58,12 @@ public class CategoriaItFacade {
     }
 
     @Transactional
-    public Integer updateCategoriaIObjeto(String string, Categoria_item categoria_item) {
-        String insert = "UPDATE categoria_item SET id_categoria_item=" + categoria_item.getIdCategoria()
-                + ",nombre_categoria='" + categoria_item.getNombreCategoria() + "',descripcion='"
-                + categoria_item.getDescripcion() + categoria_item.getCreatedAt() + "'" + "WHERE id_categoria = "
-                + string + ";";
+    public Integer updateCategoriaIObjeto(Long idCategoria, Categoria_item categoria_item) {
+        String insert = "UPDATE categoria_item SET "
+                + "nombre_categoria='" + categoria_item.getNombreCategoria() + "',descripcion='"
+                + categoria_item.getDescripcion()+"', created_at='" + categoria_item.getCreatedAt() + "'" + " WHERE id_categoria = "
+                + idCategoria + ";";
+        System.out.println(insert);
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();

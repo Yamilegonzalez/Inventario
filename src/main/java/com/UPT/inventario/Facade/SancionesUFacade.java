@@ -58,11 +58,13 @@ public class SancionesUFacade {
 
     @Transactional
     public Integer updateSancionesUObjeto(long idSancionesU, Sanciones_usuario usuario) {
-        String insert = "UPDATE usuario SET id_usuario=" + usuario.getIdUsuario().getIdUsuario() + ". id_item="
-                + usuario.getIdItem().getIdItem() + "'motivo_sistema='" + usuario.getMotivoSistema()
-                + "',fecha_ingresada='" + usuario.getFechaIngresada() + "'fecha_registro='" + usuario.getFechaRegistro()
-                + "',fecha_limite='" + usuario.getFechaLimite() + "'created_at'" + usuario.getCreatedAt() + "'"
+        String insert = "UPDATE sanciones_usuario SET id_usuario=" + usuario.getIdUsuario().getIdUsuario() + ", id_item="
+                + usuario.getIdItem().getIdItem() + ", motivo_sistema='" + usuario.getMotivoSistema()
+                + "',fecha_ingresada='" + usuario.getFechaIngresada() + "', fecha_registro='" + usuario.getFechaRegistro()
+                + "', fecha_limite='" + usuario.getFechaLimite() + "', created_at= '" + usuario.getCreatedAt() + "'"
                 + "WHERE id_sancion_usuario=" + idSancionesU + ";";
+        
+        System.out.println(insert);
         Query query = em.createNativeQuery(insert);
         try {
             query.executeUpdate();
@@ -75,7 +77,7 @@ public class SancionesUFacade {
 
     @Transactional
     public Integer deleteSancionesUObjeto(long idSancionesU) {
-        String insert = "DELETE FROM usuario WHERE id_sancion_usuario" + idSancionesU;
+        String insert = "DELETE FROM sanciones_usuario WHERE id_sancion_usuario=" + idSancionesU;
         System.out.println(insert);
         var query = em.createNativeQuery(insert);
         try {

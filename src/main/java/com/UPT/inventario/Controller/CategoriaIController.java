@@ -47,7 +47,7 @@ public class CategoriaIController {
       @PostMapping("/updateCategoriaIObjeto")
       public String updateCategoriaIObjeto(@RequestBody Categoria_item categoria_item) {
           try {
-              int res = CategoriaItFacade.updateCategoriaIObjeto(categoria_item.getCategoriaI(), categoria_item);
+              int res = CategoriaItFacade.updateCategoriaIObjeto(categoria_item.getIdCategoria(), categoria_item);
               if (res == 1) {
                   return "Categoria actualizada";
               } else {

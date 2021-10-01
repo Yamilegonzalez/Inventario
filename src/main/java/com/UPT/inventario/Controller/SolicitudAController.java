@@ -61,7 +61,7 @@ public class SolicitudAController {
   @PostMapping("/updateSolicitudAObjeto")
     public String updateSolicitudObjeto(@RequestBody Solicitud_aceptada sAceptada) {
         try {
-            int res = SolicitudAFacade.updateSolicitudAObjeto(sAceptada.getIdUsuario(), sAceptada);
+            int res = SolicitudAFacade.updateSolicitudAObjeto(sAceptada.getIdAceptada(), sAceptada);
             if (res == 1) {
                 return "Solicitud aceptada actualizado";
             } else {
