@@ -26,29 +26,29 @@ public class AreaController {
         return area;
     }
 
-    @PostMapping("/insertArea")
-    public String insertArea(@RequestParam("nombreArea") String nombreArea,
-            @RequestParam("createdAt") String createdAt) {
-        try {
-            int res = AreaFacade.insertArea(nombreArea, createdAt);
-            if (res == 1) {
-                return "Area: " + nombreArea + "," + createdAt + " insertada";
-            } else {
-                return "Error al insertar area";
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-            return "Error al insertar area";
-        }
+    // @PostMapping("/insertArea")
+    // public String insertArea(@RequestParam("nombreArea") String nombreArea,
+    //         @RequestParam("createdAt") String createdAt) {
+    //     try {
+    //         int res = AreaFacade.insertArea(nombreArea, createdAt);
+    //         if (res == 1) {
+    //             return "Area: " + nombreArea + "," + createdAt + " insertada";
+    //         } else {
+    //             return "Error al insertar area";
+    //         }
+    //     } catch (Exception e) {
+    //         System.out.println("Error: " + e.getMessage());
+    //         return "Error al insertar area";
+    //     }
 
-    }
+    // }
 
     @PostMapping("/insertAreaObjeto")
     public String insertAreaObjeto(@RequestBody Area area) {
         try {
             int res = AreaFacade.insertAreaObjeto(area);
             if (res == 1) {
-                return "Area: " + area.getNombreArea() + "," + area.getCreatedAt() + " insertada";
+                return "Area: " + area.getNombreArea() + "," + area.getCreated_at() + " insertada";
             } else {
                 return "Error al insertar area";
             }

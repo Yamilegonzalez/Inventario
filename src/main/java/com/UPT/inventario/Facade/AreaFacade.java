@@ -20,8 +20,8 @@ public class AreaFacade {
 
     public List<Area> getAllAreas() {
         List<Area> result = new ArrayList<Area>();
-        String select = "SELECT * FROM area";
-
+        String select = "SELECT * FROM area;";
+        System.out.println(select);
         Query query = em.createNativeQuery(select, Area.class);
         try {
             result = castList(Area.class, query.getResultList());
@@ -58,7 +58,7 @@ public class AreaFacade {
     @Transactional
     public Integer insertAreaObjeto(Area area) {
         String insert = "INSERT INTO area(nombre_area, created_at)"+ 
-        "VALUES ('"+area.getNombreArea()+"','"+area.getCreatedAt()+"');";
+        "VALUES ('"+area.getNombreArea()+"','"+area.getCreated_at()+"');";
         System.out.println(insert);
         Query query = em.createNativeQuery(insert);
         try {
@@ -71,7 +71,7 @@ public class AreaFacade {
     }
     @Transactional
     public Integer updateAreaObjeto(Long idArea, Area area) {
-        String insert = "UPDATE area SET nombre_area='"+ area .getNombreArea()+"', created_at='"+area.getCreatedAt()+"'"+
+        String insert = "UPDATE area SET nombre_area='"+ area .getNombreArea()+"', created_at='"+area.getCreated_at()+"'"+
         " WHERE id_area = "+idArea+";";
         System.out.println(insert);
         Query query = em.createNativeQuery(insert);

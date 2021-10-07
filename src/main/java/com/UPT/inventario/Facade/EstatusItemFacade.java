@@ -21,7 +21,7 @@ public class EstatusItemFacade {
     
     public List<Estatus_item> getAllEstatusItem() {
         List<Estatus_item> result = new ArrayList<Estatus_item>();
-            String select = "SELECT * FROM categoria_item";
+            String select = "SELECT * FROM estatus_item";
 
              Query query = em.createNativeQuery(select, Estatus_item.class);
         try {

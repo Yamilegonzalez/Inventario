@@ -1,9 +1,8 @@
 package com.UPT.inventario.Model;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
@@ -13,7 +12,7 @@ import java.util.Date;
 @Table(name = "area")
 public class Area{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name = "id_area", nullable = false)
     private Long idArea;
 
@@ -21,10 +20,10 @@ public class Area{
     private String nombreArea;
 
     @Column(name = "created_at")
-    private Date createdAt;
+    private Date created_at;
     
-    @Column(name = "updated_at")
-    private Date updatedAt;
+    @Column(name = "update_at")
+    private Date updated_at;
 
 
 
@@ -44,20 +43,22 @@ public class Area{
         this.nombreArea = nombreArea;
     }
 
-    public Date getCreatedAt() {
-        return this.createdAt;
+
+    public Date getCreated_at() {
+        return this.created_at;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(Date created_at) {
+        this.created_at = created_at;
     }
 
-    public Date getUpdatedAt() {
-        return this.updatedAt;
+    public Date getUpdated_at() {
+        return this.updated_at;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setUpdated_at(Date updated_at) {
+        this.updated_at = updated_at;
     }
+    
         
 }

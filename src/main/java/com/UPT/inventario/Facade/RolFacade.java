@@ -21,8 +21,7 @@ public class RolFacade {
     public List<Rol> getAllRol() {
         List<Rol> result = new ArrayList<Rol>();
             String select = "SELECT * FROM rol";
-
-             Query query = em.createNativeQuery(select, Rol.class);
+            Query query = em.createNativeQuery(select, Rol.class);
         try {
             result =  castList(Rol.class, query.getResultList());
 
